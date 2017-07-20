@@ -1,0 +1,101 @@
+﻿DROP PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoTagAdd
+GO
+
+DROP PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoTagDelete
+GO
+
+DROP PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoTagDeleteByTag
+GO
+
+DROP PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_TagAdd
+GO
+
+DROP PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_TagDelete
+GO
+
+DROP PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_TagGet
+GO
+
+DROP PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_TagGetByName
+GO
+
+DROP PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_TagList
+GO
+
+DROP PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_TagUpdate
+GO
+
+DROP FUNCTION {databaseOwner}{objectQualifier}Ventrian_SimpleGallery_CountAlbums
+GO
+
+DROP FUNCTION {databaseOwner}{objectQualifier}Ventrian_SimpleGallery_CountPhotos
+GO
+
+DROP FUNCTION {databaseOwner}{objectQualifier}Ventrian_SimpleGallery_SplitTags
+GO
+
+DROP PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_AlbumGetByPath
+GO
+
+DROP PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_TemplateAdd
+GO
+
+DROP PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_TemplateGet
+GO
+
+DROP PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_TemplateUpdate
+GO
+
+DROP PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoGet
+GO
+
+DROP PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoList
+GO
+
+DROP PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoAdd
+GO
+
+DROP PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoUpdate
+GO
+
+DROP PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoDelete
+GO
+
+DROP PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_GetFirstFromAlbum
+GO
+
+DROP PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_GetRandomPhoto
+GO
+
+DROP PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_SetDefaultPhoto
+GO
+
+DROP PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_AlbumGet
+GO
+
+DROP PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_AlbumListAll
+GO
+
+DROP PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_AlbumAdd
+GO
+
+DROP PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_AlbumUpdate
+GO
+
+DROP PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_AlbumDelete
+GO
+
+DROP TABLE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoTag
+GO
+
+DROP TABLE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Tag
+GO
+
+DROP TABLE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Template
+GO
+
+DROP TABLE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Photo
+GO
+
+DROP TABLE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Album
+GO

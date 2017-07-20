@@ -1,0 +1,42 @@
+﻿DROP PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_AlbumList
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_AlbumList
+	@ModuleID int,
+	@ParentAlbumID int, 
+	@ShowPublicOnly bit 
+AS
+
+SELECT
+	Album.[AlbumID],
+	Album.[ModuleID],
+	Album.[ParentAlbumID], 
+	Album.[Caption],
+	Album.[Description], 
+	Album.[IsPublic],
+	Album.[HomeDirectory],
+	Album.[Password], 
+	Count([Photo].[PhotoID]) AS NumberOfPhotos, 
+	(select count(*) from {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Album where ParentAlbumID = Album.AlbumID and IsPublic = 1) as 'NumberOfAlbums',   
+	(select count(*) from {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Album a, {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Photo p where a.ParentAlbumID = Album.AlbumID and a.AlbumID = p.AlbumID and a.IsPublic = 1) as 'NumberOfAlbumPhotos'  
+FROM         
+	{databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Album Album LEFT OUTER JOIN
+		{databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Photo Photo ON Album.AlbumID = Photo.AlbumID 
+WHERE
+	Album.[ModuleID] = @ModuleID
+	AND
+	Album.[ParentAlbumID] = @ParentAlbumID 
+	AND
+	([Album].[IsPublic] = @ShowPublicOnly OR [Album].[IsPublic] = 1)
+GROUP BY
+	Album.[Caption],
+	Album.[AlbumID],
+	Album.[ModuleID],
+	Album.[ParentAlbumID], 
+	Album.[Description], 
+	Album.[IsPublic],
+	Album.[HomeDirectory],
+	Album.[Password] 
+ORDER BY
+	Album.[Caption]
+GO

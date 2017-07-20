@@ -1,0 +1,21 @@
+﻿DROP FUNCTION {databaseOwner}{objectQualifier}Ventrian_SimpleGallery_SplitTags
+GO
+
+CREATE FUNCTION {databaseOwner}{objectQualifier}Ventrian_SimpleGallery_SplitTags(@PhotoID int)
+RETURNS nvarchar(1000)
+AS
+    BEGIN
+ 
+    DECLARE @p_str nvarchar(2000)
+    SET @p_str = ''
+
+    SELECT @p_str = @p_str + ',' + CAST(t.[Name] AS nvarchar(100))
+      FROM {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Tag t, {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoTag pt
+     WHERE t.TagID = pt.TagID and pt.PhotoID = @PhotoID
+	IF( LEN(@p_str) > 1 )
+	BEGIN
+		RETURN RIGHT(@p_str, LEN(@p_str)-1)
+	END
+	RETURN ''
+END
+GO

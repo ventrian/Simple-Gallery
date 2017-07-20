@@ -1,0 +1,135 @@
+﻿DROP PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_AlbumList
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_AlbumList
+	@ModuleID int,
+	@ParentAlbumID int, 
+	@ShowPublicOnly bit 
+AS
+
+SELECT
+	Album.[AlbumID],
+	Album.[ModuleID],
+	Album.[ParentAlbumID], 
+	Album.[Caption],
+	Album.[Description], 
+	Album.[IsPublic],
+	Album.[HomeDirectory],
+	Album.[Password], 
+	(select count(*) from {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Photo where AlbumID = Album.AlbumID and IsApproved = 1) as 'NumberOfPhotos',   
+	(select count(*) from {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Album where ParentAlbumID = Album.AlbumID and IsPublic = 1) as 'NumberOfAlbums',   
+	(select count(*) from {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Album a, {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Photo p where a.ParentAlbumID = Album.AlbumID and a.AlbumID = p.AlbumID and a.IsPublic = 1 and p.IsApproved = 1) as 'NumberOfAlbumPhotos'  
+FROM         
+	{databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Album Album
+WHERE
+	Album.[ModuleID] = @ModuleID
+	AND
+	Album.[ParentAlbumID] = @ParentAlbumID 
+	AND
+	([Album].[IsPublic] = @ShowPublicOnly OR [Album].[IsPublic] = 1)
+ORDER BY
+	Album.[Caption]
+GO
+
+DROP PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_GetFirstFromAlbum
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_GetFirstFromAlbum
+	@AlbumID int,
+	@ModuleID int 
+AS
+
+IF (SELECT count(PhotoID) FROM {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Photo WHERE AlbumID = @AlbumID) > 0 
+BEGIN
+   SELECT TOP 1
+	[PhotoID],
+	[AlbumID], 
+	[ModuleID],
+	[Name],
+	[Description],
+	[FileName],
+	[DateCreated],
+	[Width],
+	[Height],
+	[IsDefault], 
+	[AuthorID],
+	[ApproverID],
+	[IsApproved],
+	[DateApproved]
+   FROM {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Photo
+   WHERE
+	[AlbumID] = @AlbumID
+	AND 
+	[IsApproved] = 1
+   ORDER BY
+	[IsDefault] DESC, NewID() 
+END
+ELSE
+BEGIN
+DECLARE @level int, @line int
+ 
+CREATE TABLE #hierarchy(AlbumID int, level int)
+CREATE TABLE #stack (item int, level int)
+INSERT INTO #stack VALUES (@AlbumID, 1)
+SELECT @level = 1
+ 
+WHILE @level > 0
+BEGIN
+   IF EXISTS (SELECT * FROM #stack WHERE level = @level)
+      BEGIN
+         SELECT @AlbumID = item
+         FROM #stack
+         WHERE level = @level
+ 
+ 	insert into #hierarchy(AlbumID, level) values(@AlbumID, @level) 
+ 
+         DELETE FROM #stack
+         WHERE level = @level
+            AND item = @AlbumID
+ 
+         INSERT #stack
+            SELECT AlbumID, @level + 1
+            FROM {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Album
+            WHERE parentAlbumID = @AlbumID and ModuleID = @ModuleID 
+     	    ORDER BY Caption desc
+ 
+         IF @@ROWCOUNT > 0
+            SELECT @level = @level + 1
+      END
+   ELSE
+      SELECT @level = @level - 1
+END -- WHILE
+ 
+   SELECT TOP 1
+	p.[PhotoID],
+	p.[AlbumID], 
+	p.[ModuleID],
+	p.[Name],
+	p.[Description],
+	p.[FileName],
+	p.[DateCreated],
+	p.[Width],
+	p.[Height],
+	p.[IsDefault], 
+	p.[AuthorID],
+	p.[ApproverID],
+	p.[IsApproved],
+	p.[DateApproved], 
+	a.[HomeDirectory] 
+   FROM 
+	{databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Photo p, 
+	{databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Album a, 
+	#hierarchy
+   WHERE
+	#hierarchy.AlbumID = a.AlbumID
+	AND
+	a.[AlbumID] = p.[AlbumID]
+	AND 
+	p.[IsApproved] = 1
+   ORDER BY
+	newID()
+
+drop table #hierarchy
+drop table #stack
+END
+GO

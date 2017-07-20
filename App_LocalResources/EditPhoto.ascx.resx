@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="plUploadMode.Text" xml:space="preserve">
+    <value>Upload Mode</value>
+  </data>
+  <data name="plMode.Text" xml:space="preserve">
+    <value>Mode</value>
+  </data>
+  <data name="plMode.Help" xml:space="preserve">
+    <value>Select the upload mode.</value>
+  </data>
+  <data name="SingleMode.Text" xml:space="preserve">
+    <value>Single (Jpg, Gif, Png)</value>
+  </data>
+  <data name="MultipleMode.Text" xml:space="preserve">
+    <value>Multiple (Zip Files Only)</value>
+  </data>
+  <data name="SelectAlbum.Text" xml:space="preserve">
+    <value>-- Select Album --</value>
+  </data>
+  <data name="Albums.ErrorMessage" xml:space="preserve">
+    <value>&lt;br&gt;You Must Select An Album For The Photo</value>
+  </data>
+  <data name="plAlbum.Text" xml:space="preserve">
+    <value>Album</value>
+  </data>
+  <data name="plAlbum.Help" xml:space="preserve">
+    <value>Select an album for the photo(s).</value>
+  </data>
+  <data name="cmdEditAlbums.Text" xml:space="preserve">
+    <value>Edit Albums</value>
+  </data>
+  <data name="plName.Text" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="plName.Help" xml:space="preserve">
+    <value>Enter a Title for the Photo.</value>
+  </data>
+  <data name="Name.ErrorMessage" xml:space="preserve">
+    <value>&lt;br&gt;You Must Select A Name For The Photo</value>
+  </data>
+  <data name="plDescription.Text" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="plDescription.Help" xml:space="preserve">
+    <value>Enter a description of the Photo.</value>
+  </data>
+  <data name="plTags.Text" xml:space="preserve">
+    <value>Tags</value>
+  </data>
+  <data name="plTags.Help" xml:space="preserve">
+    <value>Enter Tags for the Photo.</value>
+  </data>
+  <data name="plPhoto.Text" xml:space="preserve">
+    <value>Photo</value>
+  </data>
+  <data name="plPhoto.Help" xml:space="preserve">
+    <value>Your uploaded photo.</value>
+  </data>
+  <data name="Photo.ErrorMessage" xml:space="preserve">
+    <value>&lt;br&gt;You Must Upload A File</value>
+  </data>
+  <data name="ValidTypeSingle.ErrorMessage" xml:space="preserve">
+    <value>&lt;br&gt;Only JPG, GIF, PNG Files Are Allowed</value>
+  </data>
+  <data name="ValidTypeMultiple.ErrorMessage" xml:space="preserve">
+    <value>&lt;br&gt;Only Zip Files Are Allowed</value>
+  </data>
+  <data name="DiskSpaceExceeded.ErrorMessage" xml:space="preserve">
+    <value>This File Exceeds The Amount Of Disk Space You Currently Have Available. Please Contact Your Hosting Provider For Inquiries Related To Increasing Your Portal Disk Space.</value>
+  </data>
+  <data name="cmdSetDefault.Text" xml:space="preserve">
+    <value>Set Default Album Photo</value>
+  </data>
+  <data name="SetDefault.Text" xml:space="preserve">
+    <value>Are You Sure You Want To Set This Photo As The Album Default?</value>
+  </data>
+  <data name="AddNewPhoto.Text" xml:space="preserve">
+    <value>Add New Photo</value>
+  </data>
+  <data name="EditPhoto.Text" xml:space="preserve">
+    <value>Edit Photo</value>
+  </data>
+  <data name="AllAlbums.Text" xml:space="preserve">
+    <value>All Albums</value>
+  </data>
+  <data name="EMAIL_PHOTO_SUBMIT_SUBJECT.Text" xml:space="preserve">
+    <value>[PORTALNAME] Photo Submission</value>
+  </data>
+  <data name="EMAIL_PHOTO_SUBMIT_BODY.Text" xml:space="preserve">
+    <value>Dear Approver,
+
+A photo ([PHOTONAME]) has been submitted at the [PORTALNAME] portal website and requires approval. 
+
+You may view approve the photo at the following URL:-
+[LINK]
+
+Thank you, we appreciate your support...
+[PORTALNAME]
+</value>
+  </data>
+  <data name="DeletePhoto.Text" xml:space="preserve">
+    <value>Are you sure you want to delete this photo?</value>
+  </data>
+  <data name="ModuleHelp.Text" xml:space="preserve">
+    <value>&lt;h1&gt;About the Edit Photo Module&lt;/h1&gt;&lt;p&gt;The Photo Module produces a list of photo's consisting of a name, brief description and the photo.</value>
+  </data>
+  <data name="ControlTitle_edit.Text" xml:space="preserve">
+    <value>Edit Photo</value>
+  </data>
+  <data name="cmdReplace.Text" xml:space="preserve">
+    <value>Replace Photo</value>
+  </data>
+  <data name="cmdUpload.Text" xml:space="preserve">
+    <value>Replace Image</value>
+  </data>
+  <data name="PhotoSettings.Text" xml:space="preserve">
+    <value>Photo Settings</value>
+  </data>
+  <data name="PhotoSettingsDescription.Text" xml:space="preserve">
+    <value>In this section, you can edit photos.</value>
+  </data>
+  <data name="chkAddAsBefore.Text" xml:space="preserve">
+    <value>Combine with existing photo</value>
+  </data>
+  <data name="cmdBefore.Text" xml:space="preserve">
+    <value>Add Before Photo</value>
+  </data>
+</root>

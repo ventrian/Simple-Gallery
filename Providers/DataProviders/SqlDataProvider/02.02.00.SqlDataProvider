@@ -1,0 +1,435 @@
+﻿ALTER TABLE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Photo ADD
+	BatchID nvarchar(50) NULL
+GO
+
+CREATE TABLE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Tag (
+	[TagID] [int] IDENTITY (1, 1) NOT NULL ,
+	[ModuleID] [int] NOT NULL ,
+	[Name] [nvarchar] (50) NOT NULL ,
+	[NameLowered] [nvarchar] (50) NOT NULL ,
+	[Usages] [int] NOT NULL 
+) ON [PRIMARY]
+GO
+
+ALTER TABLE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Tag ADD 
+	CONSTRAINT [DF_{objectQualifier}DnnForge_SimpleGallery_Tag_Usages] DEFAULT (0) FOR [Usages],
+	CONSTRAINT [PK_{objectQualifier}DnnForge_SimpleGallery_Tag] PRIMARY KEY  CLUSTERED 
+	(
+		[TagID]
+	)  ON [PRIMARY] 
+GO
+
+CREATE TABLE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoTag (
+	[PhotoID] [int] NOT NULL ,
+	[TagID] [int] NOT NULL 
+) ON [PRIMARY]
+GO
+
+ALTER TABLE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoTag ADD 
+	CONSTRAINT [PK_{objectQualifier}DnnForge_SimpleGallery_PhotoTag] PRIMARY KEY  CLUSTERED 
+	(
+		[PhotoID],
+		[TagID]
+	)  ON [PRIMARY] 
+GO
+
+CREATE FUNCTION {databaseOwner}{objectQualifier}Ventrian_SimpleGallery_SplitTags(@PhotoID int)
+RETURNS nvarchar(1000)
+AS
+    BEGIN
+ 
+    DECLARE @p_str nvarchar(1000)
+    SET @p_str = ''
+
+    SELECT @p_str = @p_str + ' ' + CAST(t.[Name] AS VARCHAR(50))
+      FROM {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Tag t, {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoTag pt
+     WHERE t.TagID = pt.TagID and pt.PhotoID = @PhotoID
+
+    RETURN LTRIM(@p_str)
+
+END
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoTagAdd
+	@PhotoID int,
+	@TagID int 
+AS
+
+INSERT INTO 
+	{databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoTag(PhotoID, TagID)
+VALUES(@PhotoID, @TagID) 
+
+UPDATE
+	{databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Tag
+SET
+	Usages = (select count(*) from {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoTag pt where pt.TagID = @TagID) 
+WHERE
+	TagID = @TagID
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoTagDelete
+	@PhotoID int 
+AS
+
+UPDATE 
+	{databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Tag 
+SET
+	Usages = Usages - 1
+WHERE
+	TagID in (SELECT pt.TagID from {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoTag pt where PhotoID = @PhotoID)
+	
+DELETE FROM {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Tag 
+WHERE Usages = 0
+
+DELETE FROM {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoTag 
+WHERE PhotoID = @PhotoID
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoTagDeleteByTag
+	@TagID int 
+AS
+
+DELETE FROM {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoTag 
+WHERE TagID = @TagID 
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_TagAdd
+	@ModuleID int,
+	@Name nvarchar(50),
+	@NameLowered nvarchar(50)
+AS
+
+INSERT INTO {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Tag (
+	[ModuleID],
+	[Name],
+	[NameLowered]
+) VALUES (
+	@ModuleID,
+	@Name,
+	@NameLowered 
+)
+
+select SCOPE_IDENTITY()
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_TagDelete
+	@TagID int
+AS
+
+exec {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoTagDeleteByTag @TagID
+
+DELETE FROM {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Tag
+WHERE
+	[TagID] = @TagID
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_TagGet
+	@TagID int 
+AS
+
+SELECT
+	[TagID],
+	[ModuleID],
+	[Name],
+	[NameLowered],
+	[Usages] 
+FROM {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Tag
+WHERE
+	[TagID] = @TagID
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_TagGetByName 
+	@ModuleID int,
+	@NameLowered nvarchar(50) 
+AS
+
+SELECT TOP 1 
+	[TagID],
+	[ModuleID],
+	[Name],
+	[NameLowered],
+	[Usages] 
+FROM {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Tag
+WHERE
+	[ModuleID] = @ModuleID
+	and
+	[NameLowered] = @NameLowered
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_TagList
+	@ModuleID int,
+	@AlbumID int,
+	@MaxCount int 
+AS
+
+if( @MaxCount is not null )
+begin
+	SET ROWCOUNT @MaxCount 
+end
+
+SELECT
+	t.[TagID],
+	t.[ModuleID],
+	t.[Name],
+	t.[NameLowered],
+	t.[Usages] 
+FROM 
+	{databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Tag t
+WHERE
+	t.[ModuleID] = @ModuleID
+	AND
+	(@AlbumID is null OR t.[TagID] in (SELECT pt.[TagID] FROM {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoTag pt, {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Photo p WHERE p.[PhotoID] = pt.[PhotoID] AND pt.[TagID] = t.[TagID] AND p.[AlbumID] = @AlbumID)) 
+ORDER BY 
+	t.[Usages] DESC
+
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_TagUpdate
+	@TagID int, 
+	@ModuleID int,
+	@Name nvarchar(50),
+	@NameLowered nvarchar(50), 
+	@Usages int 
+AS
+
+UPDATE
+	{databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Tag 
+SET 
+	[ModuleID] = @ModuleID,
+	[Name] = @Name,
+	[NameLowered] = @NameLowered, 
+	[Usages] = @Usages 
+WHERE
+	[TagID] = @TagID
+GO
+
+DROP PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoAdd
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoAdd
+	@ModuleID int,
+	@AlbumID int,
+	@Name nvarchar(100),
+	@Description ntext,
+	@FileName nvarchar(255),
+	@DateCreated datetime, 
+	@Width int,
+	@Height int,
+	@AuthorID int,
+	@ApproverID int,
+	@IsApproved bit,
+	@DateApproved DateTime,
+	@DateUpdated DateTime,
+	@BatchID nvarchar(50) 
+AS
+
+INSERT INTO {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Photo (
+	[ModuleID],
+	[AlbumID], 
+	[Name],
+	[Description],
+	[FileName],
+	[DateCreated],
+	[Width],
+	[Height],  
+	[AuthorID],
+	[ApproverID],
+	[IsApproved],
+	[DateApproved],
+	[DateUpdated],
+	[BatchID] 
+) VALUES (
+	@ModuleID,
+	@AlbumID, 
+	@Name,
+	@Description,
+	@FileName,
+	@DateCreated, 
+	@Width,
+	@Height,
+	@AuthorID,
+	@ApproverID, 
+	@IsApproved,
+	@DateApproved,
+	@DateUpdated,
+	@BatchID 
+)
+
+select SCOPE_IDENTITY()
+GO
+
+DROP PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoUpdate
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoUpdate
+	@PhotoID int, 
+	@ModuleID int, 
+	@AlbumID int,
+	@Name nvarchar(100), 
+	@Description ntext, 
+	@FileName nvarchar(255), 
+	@DateCreated datetime, 
+	@Width int,
+	@Height int,
+	@AuthorID int,
+	@ApproverID int,
+	@IsApproved bit,
+	@DateApproved DateTime,
+	@DateUpdated DateTime,
+	@BatchID nvarchar(50) 
+AS
+
+UPDATE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Photo SET
+	[ModuleID] = @ModuleID,
+	[AlbumID] = @AlbumID,
+	[Name] = @Name,
+	[Description] = @Description,
+	[FileName] = @FileName,
+	[DateCreated] = @DateCreated,
+	[Width] = @Width,
+	[Height] = @Height,
+	[AuthorID] = @AuthorID,
+	[ApproverID] = @ApproverID, 
+	[IsApproved] = @IsApproved,
+	[DateApproved] = @DateApproved,
+	[DateUpdated] = @DateUpdated,
+	[BatchID] = @BatchID 
+WHERE
+	[PhotoID] = @PhotoID
+GO
+
+DROP PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoDelete
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoDelete
+	@PhotoID int
+AS
+
+exec {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoTagDelete @PhotoID
+
+DELETE FROM {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Photo
+WHERE
+	[PhotoID] = @PhotoID
+GO
+
+DROP PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoGet
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoGet
+	@PhotoID int
+AS
+
+SELECT
+	Photo.[PhotoID],
+	Photo.[ModuleID],
+	Photo.[AlbumID], 
+	Photo.[Name],
+	Photo.[Description],
+	Photo.[FileName],
+	Photo.[DateCreated],
+	Photo.[Width],
+	Photo.[Height],
+	Photo.[IsDefault], 
+	Photo.[AuthorID],
+	Photo.[ApproverID],
+	Photo.[IsApproved],
+	Photo.[DateApproved],
+	Photo.[DateUpdated],
+	Photo.[BatchID], 
+	Album.[HomeDirectory],
+	Album.[Caption] as 'AlbumName',   
+	Author.[FirstName] as 'AuthorFirstName',
+	Author.[LastName] as 'AuthorLastName', 
+	Author.[UserName] as 'AuthorUserName', 
+	Approver.[FirstName] as 'ApproverFirstName',
+	Approver.[LastName] as 'ApproverLastName', 
+	Approver.[UserName] as 'ApproverUserName',
+	{databaseOwner}{objectQualifier}Ventrian_SimpleGallery_SplitTags(Photo.[PhotoID]) as 'Tags'   
+FROM         
+	{databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Photo Photo INNER JOIN
+		{databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Album Album ON Photo.AlbumID = Album.AlbumID LEFT OUTER JOIN
+        {databaseOwner}{objectQualifier}Users Author ON Photo.AuthorID = Author.UserID LEFT OUTER JOIN
+        {databaseOwner}{objectQualifier}Users Approver ON Photo.ApproverID = Approver.UserID 
+WHERE
+	[PhotoID] = @PhotoID
+GO
+
+DROP PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoList
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoList
+	@ModuleID int, 
+	@AlbumID int,
+	@IsApproved bit,
+	@MaxCount int,
+	@ShowAll bit,
+	@TagID int,
+	@BatchID nvarchar(50),
+	@SortBy int,
+	@SortOrder int           
+AS
+
+if( @MaxCount is not null )
+begin
+	SET ROWCOUNT @MaxCount 
+end
+
+SELECT
+	Photo.[PhotoID],
+	Photo.[ModuleID],
+	Photo.[AlbumID], 
+	Photo.[Name],
+	Photo.[Description],
+	Photo.[FileName],
+	Photo.[DateCreated],
+	Photo.[Width],
+	Photo.[Height],
+	Photo.[IsDefault],
+	Photo.[AuthorID],
+	Photo.[ApproverID],
+	Photo.[IsApproved],
+	Photo.[DateApproved],
+	Photo.[DateUpdated],
+	Photo.[BatchID], 
+	Album.[HomeDirectory], 
+	Album.[Caption] as 'AlbumName',   
+	Author.[FirstName] as 'AuthorFirstName',
+	Author.[LastName] as 'AuthorLastName', 
+	Author.[UserName] as 'AuthorUserName', 
+	Approver.[FirstName] as 'ApproverFirstName',
+	Approver.[LastName] as 'ApproverLastName', 
+	Approver.[UserName] as 'ApproverUserName',
+	{databaseOwner}{objectQualifier}Ventrian_SimpleGallery_SplitTags(Photo.[PhotoID]) as 'Tags'   
+FROM         
+	{databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Photo Photo INNER JOIN
+		{databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Album Album ON Photo.AlbumID = Album.AlbumID LEFT OUTER JOIN
+        {databaseOwner}{objectQualifier}Users Author ON Photo.AuthorID = Author.UserID LEFT OUTER JOIN
+        {databaseOwner}{objectQualifier}Users Approver ON Photo.ApproverID = Approver.UserID 
+WHERE
+	(@AlbumID is null or Photo.[AlbumID] = @AlbumID) 
+	AND
+	Photo.[ModuleID] = @ModuleID 
+	AND
+	(@ShowAll = 1 or Photo.[IsApproved] = @IsApproved)
+	AND
+	(@TagID is null OR @TagID in (SELECT pt.TagID FROM  {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoTag pt WHERE pt.TagID = @TagID AND Photo.PhotoID = pt.PhotoID))
+	AND
+	(@BatchID is null or Photo.[BatchID] = @BatchID) 
+ORDER BY
+	CASE
+		WHEN @SortBy = 0 and @SortOrder = 0 THEN Photo.[Name]   
+		WHEN @SortBy = 3 and @SortOrder = 0 THEN Photo.[FileName]   
+      	END DESC,
+	CASE
+		WHEN @SortBy = 0 and @SortOrder = 1 THEN Photo.[Name]   
+		WHEN @SortBy = 3 and @SortOrder = 1 THEN Photo.[FileName]   
+      	END ASC,
+	CASE
+		WHEN @SortBy = 1 and @SortOrder = 0 THEN Photo.[DateCreated] 
+		WHEN @SortBy = 2 and @SortOrder = 0 THEN Photo.[DateApproved]   
+      	END DESC,
+	CASE
+		WHEN @SortBy = 1 and @SortOrder = 1 THEN Photo.[DateCreated]  
+		WHEN @SortBy = 2 and @SortOrder = 1 THEN Photo.[DateApproved]    
+      	END ASC
+GO

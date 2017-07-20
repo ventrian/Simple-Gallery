@@ -1,0 +1,81 @@
+﻿DROP PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoList
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoList
+	@ModuleID int, 
+	@AlbumID int,
+	@IsApproved bit,
+	@MaxCount int,
+	@ShowAll bit,
+	@TagID int,
+	@BatchID nvarchar(50),
+	@SortBy int,
+	@SortOrder int       
+AS
+
+if( @MaxCount is not null )
+begin
+	SET ROWCOUNT @MaxCount 
+end
+
+SELECT
+	Photo.[PhotoID],
+	Photo.[ModuleID],
+	Photo.[AlbumID], 
+	Photo.[Name],
+	Photo.[Description],
+	Photo.[FileName],
+	Photo.[DateCreated],
+	Photo.[Width],
+	Photo.[Height],
+	Photo.[IsDefault],
+	Photo.[AuthorID],
+	Photo.[ApproverID],
+	Photo.[IsApproved],
+	Photo.[DateApproved],
+	Photo.[DateUpdated],
+	Photo.[BatchID], 
+	Album.[HomeDirectory], 
+	Album.[Caption] as 'AlbumName',   
+	Author.[FirstName] as 'AuthorFirstName',
+	Author.[LastName] as 'AuthorLastName', 
+	Author.[UserName] as 'AuthorUserName', 
+	Author.[DisplayName] as 'AuthorDisplayName', 
+	Approver.[FirstName] as 'ApproverFirstName',
+	Approver.[LastName] as 'ApproverLastName', 
+	Approver.[UserName] as 'ApproverUserName',
+	Approver.[DisplayName] as 'ApproverDisplayName',
+	{databaseOwner}{objectQualifier}Ventrian_SimpleGallery_SplitTags(Photo.[PhotoID]) as 'Tags'   
+FROM         
+	{databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Photo Photo INNER JOIN
+		{databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Album Album ON Photo.AlbumID = Album.AlbumID LEFT OUTER JOIN
+        {databaseOwner}{objectQualifier}Users Author ON Photo.AuthorID = Author.UserID LEFT OUTER JOIN
+        {databaseOwner}{objectQualifier}Users Approver ON Photo.ApproverID = Approver.UserID 
+WHERE
+	(@AlbumID is null or Photo.[AlbumID] = @AlbumID) 
+	AND
+	Photo.[ModuleID] = @ModuleID 
+	AND
+	(@ShowAll = 1 or Photo.[IsApproved] = @IsApproved)
+	AND
+	(@TagID is null OR @TagID in (SELECT pt.TagID FROM  {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoTag pt WHERE pt.TagID = @TagID AND Photo.PhotoID = pt.PhotoID))
+	AND
+	(@BatchID is null or Photo.[BatchID] =@BatchID) 
+ORDER BY
+	CASE
+		WHEN @SortBy = 0 and @SortOrder = 0 THEN Photo.[Name]   
+		WHEN @SortBy = 3 and @SortOrder = 0 THEN Photo.[FileName]   
+      	END DESC,
+	CASE
+		WHEN @SortBy = 0 and @SortOrder = 1 THEN Photo.[Name]   
+		WHEN @SortBy = 3 and @SortOrder = 1 THEN Photo.[FileName]   
+      	END ASC,
+	CASE
+		WHEN @SortBy = 1 and @SortOrder = 0 THEN Photo.[DateCreated] 
+		WHEN @SortBy = 2 and @SortOrder = 0 THEN Photo.[DateApproved]   
+      	END DESC,
+	CASE
+		WHEN @SortBy = 1 and @SortOrder = 1 THEN Photo.[DateCreated]  
+		WHEN @SortBy = 2 and @SortOrder = 1 THEN Photo.[DateApproved]    
+      	END ASC
+GO

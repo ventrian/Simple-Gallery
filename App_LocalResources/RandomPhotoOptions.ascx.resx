@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Random.Text" xml:space="preserve">
+    <value>Random</value>
+  </data>
+  <data name="Latest.Text" xml:space="preserve">
+    <value>Latest Added</value>
+  </data>
+  <data name="RandomPhotoHelp.Text" xml:space="preserve">
+    <value>In this section, you can adjust the settings for the "Simple Gallery Random" module.</value>
+  </data>
+  <data name="Mode.Text" xml:space="preserve">
+    <value>Mode</value>
+  </data>
+  <data name="Mode.Help" xml:space="preserve">
+    <value>Select a mode, either random or latest photos.</value>
+  </data>
+  <data name="MaxCount.Text" xml:space="preserve">
+    <value>Max Count</value>
+  </data>
+  <data name="MaxCount.Help" xml:space="preserve">
+    <value>Maximum # of photos to return.</value>
+  </data>
+  <data name="valMaxCount.ErrorMessage" xml:space="preserve">
+    <value>&lt;br&gt;Max Count is Required</value>
+  </data>
+  <data name="valMaxCountIsNumber.ErrorMessage" xml:space="preserve">
+    <value>&lt;br&gt;Max Count must be a Number</value>
+  </data>
+  <data name="RepeatDirection.Text" xml:space="preserve">
+    <value>Repeat Direction</value>
+  </data>
+  <data name="RepeatDirection.Help" xml:space="preserve">
+    <value>Repeat photos in either a horizontal or vertical direction.</value>
+  </data>
+  <data name="RepeatColumns.Text" xml:space="preserve">
+    <value>Repeat Columns</value>
+  </data>
+  <data name="RepeatColumns.Help" xml:space="preserve">
+    <value>Number of photos in repeat direction.</value>
+  </data>
+  <data name="valRepeatColumns.ErrorMessage" xml:space="preserve">
+    <value>&lt;br&gt;Repeat Columns is Required</value>
+  </data>
+  <data name="valRepeatColumnsIsNumber.ErrorMessage" xml:space="preserve">
+    <value>&lt;br&gt;Repeat Columns must be a number</value>
+  </data>
+  <data name="Horizontal.Text" xml:space="preserve">
+    <value>Horizontal</value>
+  </data>
+  <data name="Vertical.Text" xml:space="preserve">
+    <value>Vertical</value>
+  </data>
+  <data name="Tab.Text" xml:space="preserve">
+    <value>Gallery Page</value>
+  </data>
+  <data name="Tab.Help" xml:space="preserve">
+    <value>Set the gallery page to link to.</value>
+  </data>
+  <data name="Module.Text" xml:space="preserve">
+    <value>Gallery Module</value>
+  </data>
+  <data name="Module.Help" xml:space="preserve">
+    <value>Set the gallery module to link to.</value>
+  </data>
+  <data name="Albums.Text" xml:space="preserve">
+    <value>Gallery Albums</value>
+  </data>
+  <data name="Albums.Help" xml:space="preserve">
+    <value>Select albums to display.</value>
+  </data>
+  <data name="AllAlbums.Text" xml:space="preserve">
+    <value>-- All Albums --</value>
+  </data>
+  <data name="MaxWidth.Text" xml:space="preserve">
+    <value>Thumbnail Width</value>
+  </data>
+  <data name="MaxWidth.Help" xml:space="preserve">
+    <value>The maximum width of your photo.</value>
+  </data>
+  <data name="valWidth.ErrorMessage" xml:space="preserve">
+    <value>&lt;br&gt;Max Width is Required</value>
+  </data>
+  <data name="valWidthIsNumber.ErrorMessage" xml:space="preserve">
+    <value>&lt;br&gt;Max Width must be a number</value>
+  </data>
+  <data name="MaxHeight.Text" xml:space="preserve">
+    <value>Thumbnail Height</value>
+  </data>
+  <data name="MaxHeight.Help" xml:space="preserve">
+    <value>The maximum height of your photo.</value>
+  </data>
+  <data name="valHeight.ErrorMessage" xml:space="preserve">
+    <value>&lt;br&gt;Max Height is Required</value>
+  </data>
+  <data name="valHeightIsNumber.ErrorMessage" xml:space="preserve">
+    <value>&lt;br&gt;Max Height must be a number</value>
+  </data>
+  <data name="BorderStyle.Text" xml:space="preserve">
+    <value>Border Style</value>
+  </data>
+  <data name="BorderStyle.Help" xml:space="preserve">
+    <value>Select a border style/theme</value>
+  </data>
+  <data name="TemplateSettings.Text" xml:space="preserve">
+    <value>Template Settings</value>
+  </data>
+  <data name="TemplateSettingsDescription.Text" xml:space="preserve">
+    <value>In this section, you can adjust the layout of the random photos module.</value>
+  </data>
+  <data name="PhotoTemplate.Text" xml:space="preserve">
+    <value>Photo Template</value>
+  </data>
+  <data name="PhotoTemplate.Help" xml:space="preserve">
+    <value>Change the layout of the module.</value>
+  </data>
+  <data name="AUTHORID.Text" xml:space="preserve">
+    <value>The author of the photo's ID.</value>
+  </data>
+  <data name="AUTHORDISPLAYNAME.Text" xml:space="preserve">
+    <value>The author of the photo's display name.</value>
+  </data>
+  <data name="AUTHORFIRSTNAME.Text" xml:space="preserve">
+    <value>The author of the photo's first name.</value>
+  </data>
+  <data name="AUTHORLASTNAME.Text" xml:space="preserve">
+    <value>The author of the photo's last name.</value>
+  </data>
+  <data name="AUTHORUSERNAME.Text" xml:space="preserve">
+    <value>The author of the photo's username.</value>
+  </data>
+  <data name="APPROVERID.Text" xml:space="preserve">
+    <value>The approver of the photo's ID.</value>
+  </data>
+  <data name="APPROVERFIRSTNAME.Text" xml:space="preserve">
+    <value>The approver of the photo's first name.</value>
+  </data>
+  <data name="APPROVERLASTNAME.Text" xml:space="preserve">
+    <value>The approver of the photo's last name.</value>
+  </data>
+  <data name="APPROVERUSERNAME.Text" xml:space="preserve">
+    <value>The approver of the photo's username.</value>
+  </data>
+  <data name="DATEAPPROVED.Text" xml:space="preserve">
+    <value>The date approved of the photo.</value>
+  </data>
+  <data name="DATECREATED.Text" xml:space="preserve">
+    <value>The date created of the /photo.</value>
+  </data>
+  <data name="DATEUPDATED.Text" xml:space="preserve">
+    <value>The date last updated of the photo.</value>
+  </data>
+  <data name="DESCRIPTION.Text" xml:space="preserve">
+    <value>The description of the photo.</value>
+  </data>
+  <data name="EDIT.Text" xml:space="preserve">
+    <value>A link to edit the photo, only visible to authorized users.</value>
+  </data>
+  <data name="FILENAME.Text" xml:space="preserve">
+    <value>The filename of the photo.</value>
+  </data>
+  <data name="HEIGHT.Text" xml:space="preserve">
+    <value>The height of the photo.</value>
+  </data>
+  <data name="HOMEDIRECTORY.Text" xml:space="preserve">
+    <value>The home directory of the album containing the photo.</value>
+  </data>
+  <data name="PHOTO.Text" xml:space="preserve">
+    <value>The photo without the configurable border.</value>
+  </data>
+  <data name="PHOTOLINK.Text" xml:space="preserve">
+    <value>The URL to view the photo in a slideshow.</value>
+  </data>
+  <data name="PHOTOWITHBORDER.Text" xml:space="preserve">
+    <value>The photo including the configurable border.</value>
+  </data>
+  <data name="PHOTOWITHBORDERNOLINK.Text" xml:space="preserve">
+    <value>The photo including the configurable border and no link.</value>
+  </data>
+  <data name="TITLE.Text" xml:space="preserve">
+    <value>The title of the photo.</value>
+  </data>
+  <data name="WIDTH.Text" xml:space="preserve">
+    <value>The width of the photo.</value>
+  </data>
+  <data name="ModuleHelp.Text" xml:space="preserve">
+    <value>&lt;h1&gt;About the Random Options Module&lt;/h1&gt;&lt;p&gt;The Random Options Module allows you to customize options for the random photo module.</value>
+  </data>
+  <data name="ControlTitle_options.Text" xml:space="preserve">
+    <value>Random Photo Options</value>
+  </data>
+  <data name="BasicSettings.Text" xml:space="preserve">
+    <value>Basic Settings</value>
+  </data>
+  <data name="CompressionSettings.Text" xml:space="preserve">
+    <value>Compression Settings</value>
+  </data>
+  <data name="CompressionType.Help" xml:space="preserve">
+    <value>Select the appropriate compression algorithm.</value>
+  </data>
+  <data name="CompressionType.Text" xml:space="preserve">
+    <value>Compression</value>
+  </data>
+  <data name="ControlTitle_settings.Text" xml:space="preserve">
+    <value>Gallery Settings</value>
+  </data>
+  <data name="MinSize.Text" xml:space="preserve">
+    <value>Minimum File Size</value>
+  </data>
+  <data name="Quality.Text" xml:space="preserve">
+    <value>Highest Quality</value>
+  </data>
+  <data name="AdvancedSettings.Text" xml:space="preserve">
+    <value>Advanced Settings</value>
+  </data>
+  <data name="LaunchSlideshow.Help" xml:space="preserve">
+    <value>Check to launch a slideshow from the links in this module. Otherwise, it will link to the album.</value>
+  </data>
+  <data name="LaunchSlideshow.Text" xml:space="preserve">
+    <value>Launch Slideshow?</value>
+  </data>
+  <data name="ALBUM.Text" xml:space="preserve">
+    <value>A random image representing the album, this is *without* borders.</value>
+  </data>
+  <data name="ALBUMCOUNT.Text" xml:space="preserve">
+    <value>Number of sub-albums belonging to this album, displays nothing if none exist.</value>
+  </data>
+  <data name="Album-EDIT.Text" xml:space="preserve">
+    <value>A link to edit the album, only visible to authorized users.</value>
+  </data>
+  <data name="ALBUMLINK.Text" xml:space="preserve">
+    <value>The URL to view photos belongong to that album.</value>
+  </data>
+  <data name="AlbumTemplate.Help" xml:space="preserve">
+    <value>Change the layout of the module.</value>
+  </data>
+  <data name="AlbumTemplate.Text" xml:space="preserve">
+    <value>Album Template</value>
+  </data>
+  <data name="Album-TITLE.Text" xml:space="preserve">
+    <value>The title of the album.</value>
+  </data>
+  <data name="ALBUMWITHBORDER.Text" xml:space="preserve">
+    <value>A random image representing the album, this is *with* configurable borders.</value>
+  </data>
+  <data name="Display.Help" xml:space="preserve">
+    <value>Set to display photos or albums.</value>
+  </data>
+  <data name="Display.Text" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="Display-Album.Text" xml:space="preserve">
+    <value>Album</value>
+  </data>
+  <data name="Display-Photo.Text" xml:space="preserve">
+    <value>Photo</value>
+  </data>
+  <data name="PHOTOCOUNT.Text" xml:space="preserve">
+    <value>Number of photos belonging to this album, displays nothing if none exist.</value>
+  </data>
+  <data name="RSS.Text" xml:space="preserve">
+    <value>A link including the RSS image to a RSS file for this album.</value>
+  </data>
+  <data name="RSSLINK.Text" xml:space="preserve">
+    <value>The URL to view the RSS file for this album.</value>
+  </data>
+  <data name="TagFilter.Help" xml:space="preserve">
+    <value>Optionally, filter on a tag. Leave blank for no filter.</value>
+  </data>
+  <data name="TagFilter.Text" xml:space="preserve">
+    <value>Tag Filter</value>
+  </data>
+  <data name="plIncludeJQuery.Help" xml:space="preserve">
+    <value>Check to include the jQuery script.</value>
+  </data>
+  <data name="plIncludeJQuery.Text" xml:space="preserve">
+    <value>Include jQuery?</value>
+  </data>
+  <data name="ALBUMID.Text" xml:space="preserve">
+    <value>The ID of the album the photo belongs to.</value>
+  </data>
+  <data name="ALBUMNAME.Text" xml:space="preserve">
+    <value>The name of the album the photo belongs to.</value>
+  </data>
+  <data name="plSquare.Help" xml:space="preserve">
+    <value>The square size of the thumbnail.</value>
+  </data>
+  <data name="plSquare.Text" xml:space="preserve">
+    <value>Thumbnail Size</value>
+  </data>
+  <data name="plThumbnailType.Help" xml:space="preserve">
+    <value>Specify a thumbnail type.</value>
+  </data>
+  <data name="plThumbnailType.Text" xml:space="preserve">
+    <value>Thumbnail Type</value>
+  </data>
+  <data name="Proportion.Text" xml:space="preserve">
+    <value>Proportion</value>
+  </data>
+  <data name="Square.Text" xml:space="preserve">
+    <value>Square (cropped)</value>
+  </data>
+  <data name="PHOTOWITHOUTBORDER.Text" xml:space="preserve">
+    <value>The photo without the border.</value>
+  </data>
+  <data name="DOWNLOADLINK.Text" xml:space="preserve">
+    <value>A link to download the photo.</value>
+  </data>
+  <data name="Album-DATECREATED.Text" xml:space="preserve">
+    <value>The creation date of the album.</value>
+  </data>
+  <data name="Album-DESCRIPTION.Text" xml:space="preserve">
+    <value>The description of the album.</value>
+  </data>
+  <data name="AlbumSlideshow.Help" xml:space="preserve">
+    <value>Check to show photos belonging to the album when launch slideshow checked. </value>
+  </data>
+  <data name="AlbumSlideshow.Text" xml:space="preserve">
+    <value>Album Slideshow?</value>
+  </data>
+  <data name="Caption.Text" xml:space="preserve">
+    <value>Caption</value>
+  </data>
+  <data name="ISNOTSELECTED.Text" xml:space="preserve">
+    <value>Shows text if an album is selected, use by [ISNOTSELECTED][/ISNOTSELECTED]</value>
+  </data>
+  <data name="ISSELECTED.Text" xml:space="preserve">
+    <value>Shows text if an album is selected, use by [ISSELECTED][/ISSELECTED]</value>
+  </data>
+  <data name="plTemplateType.Text" xml:space="preserve">
+    <value>Template Mode</value>
+  </data>
+  <data name="Template-Advanced.Text" xml:space="preserve">
+    <value>Advanced (Flow)</value>
+  </data>
+  <data name="Template-Simple.Text" xml:space="preserve">
+    <value>Simple (Table)</value>
+  </data>
+  <data name="ZIP.Text" xml:space="preserve">
+    <value>A link to download zip of images.</value>
+  </data>
+  <data name="ZIPLINK.Text" xml:space="preserve">
+    <value>A url to download zip of images.</value>
+  </data>
+  <data name="ISINROLE_XXX.Text" xml:space="preserve">
+    <value>[ISINROLE:XXX]Some Text[/ISINROLE:XXX] where XXX is the role name. </value>
+  </data>
+  <data name="ISNOTINROLE_XXX.Text" xml:space="preserve">
+    <value>[ISNOTINROLE:XXX]Some Text[/ISNOTINROLE:XXX] where XXX is not in the role name.</value>
+  </data>
+</root>

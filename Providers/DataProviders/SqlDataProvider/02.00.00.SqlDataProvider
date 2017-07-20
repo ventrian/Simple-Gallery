@@ -1,0 +1,66 @@
+﻿CREATE TABLE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Template (
+	[TemplateID] [int] IDENTITY (1, 1) NOT NULL ,
+	[ModuleID] [int] NOT NULL ,
+	[Name] [nvarchar] (255) NOT NULL ,
+	[Template] [ntext] NOT NULL 
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+ALTER TABLE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Template ADD 
+	CONSTRAINT [PK_{objectQualifier}DnnForge_SimpleGallery_Template] PRIMARY KEY  CLUSTERED 
+	(
+		[TemplateID]
+	)  ON [PRIMARY] 
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_TemplateGet
+	@ModuleID int,
+	@Name nvarchar(255) 
+AS
+
+SELECT
+	[TemplateID],
+	[ModuleID],
+	[Name],
+	[Template]
+FROM {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Template
+WHERE
+	[ModuleID] = @ModuleID
+	and
+	[Name] = @Name
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_TemplateAdd
+	@ModuleID int,
+	@Name nvarchar(255),
+	@Template ntext
+AS
+
+INSERT INTO {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Template (
+	[ModuleID],
+	[Name],
+	[Template]
+) VALUES (
+	@ModuleID,
+	@Name,
+	@Template
+)
+
+select SCOPE_IDENTITY()
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_TemplateUpdate
+	@TemplateID int, 
+	@ModuleID int, 
+	@Name nvarchar(255), 
+	@Template ntext 
+AS
+
+UPDATE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Template SET
+	[ModuleID] = @ModuleID,
+	[Name] = @Name,
+	[Template] = @Template
+WHERE
+	[TemplateID] = @TemplateID
+GO
+

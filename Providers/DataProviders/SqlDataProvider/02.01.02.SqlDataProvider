@@ -1,0 +1,139 @@
+﻿ALTER TABLE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Photo
+	ADD Description2 ntext
+GO
+
+UPDATE
+	{databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Photo
+SET
+	Description2 = Description
+GO
+
+ALTER TABLE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Photo
+	DROP COLUMN [Description]
+GO
+
+ALTER TABLE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Photo
+	ADD [Description] ntext
+GO
+
+UPDATE
+	{databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Photo
+SET
+	[Description] = Description2
+GO
+
+ALTER TABLE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Photo
+	DROP COLUMN [Description2]
+GO
+
+DROP PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoAdd
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoAdd
+	@ModuleID int,
+	@AlbumID int,
+	@Name nvarchar(100),
+	@Description ntext,
+	@FileName nvarchar(255),
+	@DateCreated datetime, 
+	@Width int,
+	@Height int,
+	@AuthorID int,
+	@ApproverID int,
+	@IsApproved bit,
+	@DateApproved DateTime,
+	@DateUpdated DateTime  
+AS
+
+INSERT INTO {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Photo (
+	[ModuleID],
+	[AlbumID], 
+	[Name],
+	[Description],
+	[FileName],
+	[DateCreated],
+	[Width],
+	[Height],  
+	[AuthorID],
+	[ApproverID],
+	[IsApproved],
+	[DateApproved],
+	[DateUpdated] 
+) VALUES (
+	@ModuleID,
+	@AlbumID, 
+	@Name,
+	@Description,
+	@FileName,
+	@DateCreated, 
+	@Width,
+	@Height,
+	@AuthorID,
+	@ApproverID, 
+	@IsApproved,
+	@DateApproved,
+	@DateUpdated  
+)
+
+select SCOPE_IDENTITY()
+GO
+
+DROP PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoUpdate
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoUpdate
+	@PhotoID int, 
+	@ModuleID int, 
+	@AlbumID int,
+	@Name nvarchar(100), 
+	@Description ntext, 
+	@FileName nvarchar(255), 
+	@DateCreated datetime, 
+	@Width int,
+	@Height int,
+	@AuthorID int,
+	@ApproverID int,
+	@IsApproved bit,
+	@DateApproved DateTime,
+	@DateUpdated DateTime  
+AS
+
+UPDATE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Photo SET
+	[ModuleID] = @ModuleID,
+	[AlbumID] = @AlbumID,
+	[Name] = @Name,
+	[Description] = @Description,
+	[FileName] = @FileName,
+	[DateCreated] = @DateCreated,
+	[Width] = @Width,
+	[Height] = @Height,
+	[AuthorID] = @AuthorID,
+	[ApproverID] = @ApproverID, 
+	[IsApproved] = @IsApproved,
+	[DateApproved] = @DateApproved,
+	[DateUpdated] = @DateUpdated   
+WHERE
+	[PhotoID] = @PhotoID
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_AlbumGetByPath
+	@ModuleID int, 
+	@HomeDirectory nvarchar(255) 
+AS
+
+SELECT TOP 1 
+	[AlbumID],
+	[ModuleID],
+	[ParentAlbumID], 
+	[Caption],
+	[Description], 
+	[IsPublic],
+	[HomeDirectory],
+	[Password],
+	[AlbumOrder] 
+FROM {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Album
+WHERE
+	[ModuleID] = @ModuleID
+	and
+	[HomeDirectory] = @HomeDirectory
+GO

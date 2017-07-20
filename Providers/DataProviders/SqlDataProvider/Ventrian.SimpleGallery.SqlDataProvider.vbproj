@@ -1,0 +1,165 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0A2B619D-DF3A-4480-AC7B-C216602998D7}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>Ventrian.SimpleGallery.SqlDataProvider</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyMode>None</AssemblyOriginatorKeyMode>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionStrict>Off</OptionStrict>
+    <RootNamespace>
+    </RootNamespace>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <MyType>Windows</MyType>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>..\..\..\..\..\bin\</OutputPath>
+    <DocumentationFile>DnnForge.SimpleGallery.SqlDataProvider.xml</DocumentationFile>
+    <BaseAddress>285212672</BaseAddress>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>
+    </DefineConstants>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>1</WarningLevel>
+    <NoWarn>42016,42017,42018,42019,42032</NoWarn>
+    <DebugType>full</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>..\..\..\..\..\bin\</OutputPath>
+    <DocumentationFile>DnnForge.SimpleGallery.SqlDataProvider.xml</DocumentationFile>
+    <BaseAddress>285212672</BaseAddress>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>
+    </DefineConstants>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>1</WarningLevel>
+    <NoWarn>42016,42017,42018,42019,42032</NoWarn>
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DotNetNuke, Version=4.5.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationBlocks.Data, Version=2.0.0.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\bin\Microsoft.ApplicationBlocks.Data.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="01.00.00.SqlDataProvider" />
+    <None Include="01.02.00.SqlDataProvider" />
+    <None Include="01.05.00.SqlDataProvider" />
+    <None Include="01.05.01.SqlDataProvider" />
+    <None Include="01.06.00.SqlDataProvider" />
+    <None Include="01.06.01.SqlDataProvider" />
+    <None Include="01.06.02.SqlDataProvider" />
+    <None Include="01.07.00.SqlDataProvider" />
+    <None Include="01.08.00.SqlDataProvider" />
+    <None Include="01.08.01.SqlDataProvider" />
+    <None Include="01.08.02.SqlDataProvider" />
+    <None Include="01.08.03.SqlDataProvider" />
+    <None Include="01.08.04.SqlDataProvider" />
+    <None Include="01.09.01.SqlDataProvider" />
+    <None Include="01.09.02.SqlDataProvider" />
+    <None Include="01.09.03.SqlDataProvider" />
+    <None Include="01.09.04.SqlDataProvider" />
+    <None Include="01.09.05.SqlDataProvider" />
+    <None Include="02.00.00.SqlDataProvider" />
+    <None Include="02.01.02.SqlDataProvider" />
+    <None Include="02.01.05.SqlDataProvider" />
+    <None Include="02.02.00.SqlDataProvider" />
+    <None Include="02.02.06.SqlDataProvider" />
+    <None Include="02.03.00.SqlDataProvider" />
+    <None Include="02.03.01.SqlDataProvider" />
+    <None Include="02.03.03.SqlDataProvider" />
+    <None Include="02.03.05.SqlDataProvider" />
+    <None Include="02.03.08.SqlDataProvider" />
+    <None Include="02.03.10.SqlDataProvider" />
+    <None Include="02.03.11.SqlDataProvider" />
+    <None Include="02.03.12.SqlDataProvider" />
+    <None Include="02.03.14.SqlDataProvider" />
+    <None Include="02.03.15.SqlDataProvider" />
+    <None Include="02.03.17.SqlDataProvider" />
+    <None Include="02.04.00.SqlDataProvider" />
+    <None Include="02.04.05.SqlDataProvider" />
+    <None Include="02.04.06.SqlDataProvider" />
+    <None Include="02.04.14.SqlDataProvider" />
+    <None Include="02.04.33.SqlDataProvider" />
+    <None Include="02.04.39.SqlDataProvider" />
+    <None Include="uninstall.SqlDataProvider" />
+    <Compile Include="SqlDataProvider.vb">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Ventrian.SimpleGallery.vbproj">
+      <Project>{2C1B3FCD-EE1D-4A5E-A8D5-02C8B959AF8F}</Project>
+      <Name>Ventrian.SimpleGallery</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="My Project\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

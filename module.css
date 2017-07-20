@@ -1,0 +1,490 @@
+﻿/* Generic Styles */
+
+#albums {
+	padding: 0px 37px;
+	padding-bottom: 40px;
+}
+
+.view {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+    margin-bottom: 20px;
+	padding: 2px;
+	border-collapse:collapse;
+}
+
+.view .photo-frame {
+	margin-left: 4px;
+	margin-right: 4px;
+	margin-bottom: 4px;
+    margin-top: 10px;
+}
+
+.randomview {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+    margin-bottom: 20px;
+	padding: 2px;
+	border-collapse:collapse;
+}
+
+.randomview .photo-frame {
+	margin-left: 4px;
+	margin-right: 4px;
+	margin-bottom: 4px;
+    margin-top: 10px;
+}
+
+.album-item {
+	padding: 10px 10px;
+	color: #B2B2B2;
+}
+
+.album-item h4 {
+	margin-bottom: 0.4em;
+}
+
+#photos .view, #admin-details .view {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.photo_198 {
+	border: 4px solid #FFFFFF;
+	display: block;
+}
+
+.photo-frame
+{
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+	border-collapse: collapse;
+}
+
+.photo-frame TD {
+	margin: 0px;
+	padding: 0px;
+}
+
+.photo-frame .topx-- 
+{
+	background-repeat: no-repeat;
+	width: auto;
+	height: 4px;
+	vertical-align: top;
+}
+.photo-frame .top-x- {
+	background-repeat: repeat-x;
+	width: auto;
+	height: 4px;
+}
+.photo-frame .top--x {
+	background-repeat: no-repeat;
+	width: auto;
+	height: 4px;
+	vertical-align: top;
+}
+
+.photo-frame .midx-- {
+	background-repeat: repeat-y;
+	width: 4px;
+	height: auto;
+}
+.photo-frame .mid--x {
+	background-repeat: repeat-y;
+	width: 4px;
+	height: auto;
+}
+
+.photo-frame .botx-- {
+	background-repeat: no-repeat;
+	width: 4px;
+	height: 4px;
+	vertical-align: top;
+}
+.photo-frame .bot-x- {
+	background-repeat: repeat-x;
+	width: auto;
+	height: 4px;
+}
+.photo-frame .bot--x {
+	background-repeat: no-repeat;
+	width: 4px;
+	height: 4px;
+	vertical-align: bottom;
+}
+
+/* Photo Border for the Album Page */
+
+.album-frame .topx----,
+.album-frame .top----x,
+.album-frame .botx----,
+.album-frame .bot----x {
+	height: 14px;
+	width: 14px;
+}
+.album-frame .topx---- img 
+{
+    vertical-align: bottom;
+}
+
+.album-frame .top-x--- {
+	background-repeat: repeat-x;
+	background-position: bottom;
+	text-align: left;
+	height: 14px;
+	width: auto;
+}
+.album-frame .top-x--- img 
+{
+    vertical-align: bottom;
+}
+.album-frame .top--x-- {
+	background-repeat: repeat-x;
+	height: 14px;
+	width: auto;
+}
+.album-frame .top---x- {
+	background-repeat: repeat-x;
+	background-position: bottom;
+	text-align: right;
+	height: 14px;
+	width: auto;
+}
+.album-frame .top---x- img 
+{
+    vertical-align: bottom;
+}
+.album-frame .top---- img 
+{
+    vertical-align: bottom;
+}
+
+.album-frame .mtpx---- {
+	background-repeat: repeat-y;
+	vertical-align: top;
+	height: auto;
+	width: 14px;
+}
+.album-frame .mtp----x {
+	background-repeat: repeat-y;
+	vertical-align: top;
+	height: auto;
+	width: 14px;
+}
+
+.album-frame .midx---- {
+	background-repeat: repeat-y;
+	height: auto;
+	width: 14px;
+}
+.album-frame .mid----x {
+	background-repeat: repeat-y;
+	height: auto;
+	width: 14px;
+}
+
+.album-frame .mbtx---- {
+	background-repeat: repeat-y;
+	vertical-align: bottom;
+	height: auto;
+	width: 14px;
+}
+.album-frame .mbt----x {
+	background-repeat: repeat-y;
+	vertical-align: bottom;
+	height: auto;
+	width: 14px;
+}
+
+.album-frame .bot-x--- {
+	background-repeat: repeat-x;
+	text-align: left;
+	height: 14px;
+	width: auto;
+}
+.album-frame .bot--x-- {
+	background-repeat: repeat-x;
+	height: 14px;
+	width: auto;
+}
+.album-frame .bot---x- {
+	background-repeat: repeat-x;
+	text-align: right;
+	height: 14px;
+	width: auto;
+}
+.ab {border: #000 1px solid;}
+.pb {margin-top: 2px; padding-left: 3px; padding-right: 3px; padding-bottom: 3px; height: 16px; text-align: center; text-decoration: none; cursor: pointer;}
+.pbH {padding-top: 1px; padding-bottom: 2px; border: 1px solid #F7A437; background: #FFF6D6; padding-left: 2px; padding-right: 2px; height: 16px; text-align: center; text-decoration: none; cursor: pointer;}
+
+.popupBG 
+{
+	/*
+	background-color: Red;	
+	*/
+}
+
+/* Tag Styles */
+
+
+.tagCloud
+{
+	width:100%;
+	border:solid 0px #ccc;
+	padding:3px;
+	margin-bottom:3px;
+	text-align:justify;
+	font-family:Arial, san-serif;
+	line-height: 160%;
+}
+
+.tagCloud a:link, .tagCloud a:visited, .tagCloud a:active, .tagCloud a:hover
+{
+	text-decoration:none;
+	margin:1px;
+	text-transform:lowercase;
+	font-weight:bold;
+}
+
+.tagCloud A:hover
+{
+	text-decoration:underline;
+}
+
+.tagCloud a:link.weight1, .tagCloud a:visited.weight1, .tagCloud a:active.weight1, .tagCloud a:hover.weight1
+{
+	font-size: 14px;
+}
+.tagCloud a:link.weight2, .tagCloud a:visited.weight2, .tagCloud a:active.weight2, .tagCloud a:hover.weight2
+{
+	font-size:13px;
+}
+.tagCloud a:link.weight3, .tagCloud a:visited.weight3, .tagCloud a:active.weight3, .tagCloud a:hover.weight3
+{
+	font-size: 12px;
+}
+.tagCloud a:link.weight4, .tagCloud a:visited.weight4, .tagCloud a:active.weight4, .tagCloud a:hover.weight4
+{
+	font-size: 11px;
+}
+.tagCloud a:link.weight5, .tagCloud a:visited.weight5, .tagCloud a:active.weight5, .tagCloud a:hover.weight5
+{
+	font-size: 10px;
+}	
+
+/* Uploader Styles */
+.sg_photolist
+{
+    width: 600px;
+}
+
+.sg_photolist li
+{
+    display: inline;
+    float: left;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.progressWrapper 
+{
+	width: 357px;
+	overflow: hidden;
+	background-color: #000;
+}
+
+.progressContainer {
+	margin: 1px;
+	padding: 4px;
+	border: solid 1px #E8E8E8;
+	background-color: #F7F7F7;
+	overflow: hidden;
+	color: #000;
+}
+
+.progressBarInProgress,
+.progressBarComplete,
+.progressBarError {
+	font-size: 0px;
+	width: 0%;
+	height: 2px;
+	background-color: blue;
+	text-align: left;
+	margin-top: 2px;
+	float: left;
+}
+.progressBarComplete {
+	width: 100%;
+	background-color: green;
+	visibility: hidden;
+}
+.progressBarError {
+	width: 100%;
+	background-color: red;
+	visibility: hidden;
+}
+.progressBarStatus {
+	margin-top: 2px;
+	text-align: left;
+	white-space: nowrap;
+}
+a.progressCancel,
+a.progressCancel:link,
+a.progressCancel:active,
+a.progressCancel:visited,
+a.progressCancel:hover
+{
+	font-size: 0px;
+	display: block;
+	height: 14px;
+	width: 14px;
+	
+	background-image: url(images/SWFUpload/cancelbutton.gif);
+	background-repeat: no-repeat;
+	background-position: -14px 0px;
+	float: right;
+}
+a.progressCancel:hover 
+{
+	background-position: 0px 0px;
+}
+/**
+ * jQuery lightBox plugin
+ * This jQuery plugin was inspired and based on Lightbox 2 by Lokesh Dhakar (http://www.huddletogether.com/projects/lightbox2/)
+ * and adapted to me for use like a plugin from jQuery.
+ * @name jquery-lightbox-0.4.css
+ * @author Leandro Vieira Pinho - http://leandrovieira.com
+ * @version 0.4
+ * @date November 17, 2007
+ * @category jQuery plugin
+ * @copyright (c) 2007 Leandro Vieira Pinho (leandrovieira.com)
+ * @license CC Attribution-No Derivative Works 2.5 Brazil - http://creativecommons.org/licenses/by-nd/2.5/br/deed.en_US
+ * @example Visit http://leandrovieira.com/projects/jquery/lightbox/ for more informations about this jQuery plugin
+ */
+#jquery-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 3000;
+	width: 100%;
+	height: 500px;
+}
+#jquery-lightbox {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 5000;
+	text-align: center;
+	line-height: 0;
+}
+#jquery-lightbox a img { border: none; }
+#lightbox-container-image-box {
+	position: relative;
+	background-color: #fff;
+	width: 250px;
+	height: 250px;
+	margin: 0 auto;
+}
+#lightbox-container-image { padding: 10px; }
+#lightbox-loading {
+	position: absolute;
+	top: 40%;
+	left: 0%;
+	height: 25%;
+	width: 100%;
+	text-align: center;
+	line-height: 0;
+}
+
+#lightbox-container-image-data-box {
+	background-color: #fff;
+	margin:0pt auto;
+	overflow: auto;
+	font-family:Verdana,Helvetica,sans-serif;
+	font-size:10px;
+	font-size-adjust:none;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:normal;
+	line-height:1.4em;
+}
+
+#lightbox-container-image-data {
+	padding: 0 10px; 
+}
+
+#lightbox-container-image-details {
+	float:left;
+	text-align:left;
+	width:70%;
+}
+
+#lightbox-container-image-details-caption
+{
+	font-weight: bold;
+}
+
+#lightbox-container-image-details-description
+{
+	clear:left;
+	display:block;
+}
+
+#lightbox-container-image-details-currentNumber 
+{
+	clear:left;
+	display:block;
+}
+
+#lightbox-container-image-details-currentNumber a, lightbox-container-image-details-currentNumber a:hover
+{
+	border-bottom:medium none;
+	color:#151410;
+	text-decoration:underline;
+}
+
+#lightbox-container-image-details-nav {
+	clear:left;
+	display:block;
+	padding:0pt 0pt 10px;
+}
+
+#lightbox-container-image-details-nav a, #lightbox-container-image-details-nav a:hover {
+	border-bottom:medium none;
+	color:#151410;
+	text-decoration:underline;
+}
+
+#lightbox-container-image-details-nav-btnPrev
+{
+	margin:0pt 8px 0pt 0pt;
+}
+
+#lightbox-container-image-details-nav-btnPlay
+{
+	margin:0pt 8px 0pt 0pt;
+}
+
+#lightbox-image-details-close {
+	float: right;
+	text-align: right;
+	padding:0 0 10px;
+}
+
+#lightbox-image-details-close a, #lightbox-image-details-close a:hover {
+	border-bottom:medium none;
+	color:#151410;
+	text-decoration:underline;	
+}
+
+#lightbox-image-details-download a, #lightbox-image-details-download a:hover {
+	border-bottom:medium none;
+	color:#151410;
+	text-decoration:underline;	
+	padding:0 0 10px;
+}

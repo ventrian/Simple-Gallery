@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+<xsd:element name="root" msdata:IsDataSet="true">
+<xsd:complexType>
+<xsd:choice maxOccurs="unbounded">
+<xsd:element name="data">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+</xsd:sequence>
+<xsd:attribute name="name" type="xsd:string" />
+<xsd:attribute name="type" type="xsd:string" />
+<xsd:attribute name="mimetype" type="xsd:string" />
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="resheader">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+</xsd:sequence>
+<xsd:attribute name="name" type="xsd:string" use="required" />
+</xsd:complexType>
+</xsd:element>
+</xsd:choice>
+</xsd:complexType>
+</xsd:element>
+</xsd:schema>
+<resheader name="ResMimeType">
+<value>text/microsoft-resx</value>
+</resheader>
+<resheader name="Version">
+<value>1.0.0.0</value>
+</resheader>
+<resheader name="Reader">
+<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+</resheader>
+<resheader name="Writer">
+<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+</resheader>
+<data name="AllAlbums.Text">
+	<value>All Albums</value>
+</data>
+<data name="EditAlbums.Text">
+	<value>Edit Albums</value>
+</data>
+<data name="EditSortOrder.Text">
+	<value>Edit Sort Order</value>
+</data>
+<data name="NoAlbumsMessage.Text">
+<value>&lt;br&gt;There are no albums matching that parent album.</value>
+</data>
+<data name="NoParentAlbum.Text">
+<value>-- No Parent Album --</value>
+</data>
+<data name="ParentAlbum.Text">
+<value>Parent Album</value>
+</data>
+<data name="ParentAlbum.Help">
+<value>Select Parent Album to filter by..</value>
+</data>
+<data name="ChildAlbums.Text">
+<value>Child Albums</value>
+</data>
+<data name="ChildAlbums.Help">
+<value>Reorder child albums displayed to the right.</value>
+</data>
+<data name="MovePage.Text">
+<value>Move Page</value>
+</data>
+<data name="Actions.Text">
+<value>Actions</value>
+</data>
+<data name="cmdUp.Help">
+<value>Move Selected Album Up</value>
+</data>
+<data name="cmdDown.Help">
+<value>Move Selected Album Down</value>
+</data>
+<data name="cmdEdit.Help">
+<value>Edit Selected Album</value>
+</data>
+<data name="cmdView.Help">
+<value>View Selected Album</value>
+</data>
+<data name="ControlTitle_sortorder.Text">
+<value>Edit Sort Order</value>
+</data>
+<data name="AlbumUpdated.Text">
+<value>Album Update Complete!</value>
+</data>
+<data name="UpdateSortOrder.Text">
+<value>Update Sort Order</value>
+</data>
+<data name="ReturnToAlbums.Text">
+<value>Return To Edit Albums</value>
+</data>
+<data name="ModuleHelp.Text">
+<value>&lt;h1&gt;Edit Sort Order&lt;/h1&gt;&lt;p&gt;The module allows you to sort albums.&lt;/p&gt;</value>
+</data>
+</root>

@@ -1,0 +1,648 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2C1B3FCD-EE1D-4A5E-A8D5-02C8B959AF8F}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>
+    </RootNamespace>
+    <AssemblyName>Ventrian.SimpleGallery</AssemblyName>
+    <OptionStrict>Off</OptionStrict>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>..\..\bin\</OutputPath>
+    <DocumentationFile>Ventrian.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</NoWarn>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>Ventrian.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</NoWarn>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DotNetNuke, Version=4.5.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\DotNetNuke.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SharpZipLib, Version=0.81.0.1407, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Collections.Specialized" />
+    <Import Include="System.Configuration" />
+    <Import Include="System.Text" />
+    <Import Include="System.Text.RegularExpressions" />
+    <Import Include="System.Web" />
+    <Import Include="System.Web.Caching" />
+    <Import Include="System.Web.SessionState" />
+    <Import Include="System.Web.Security" />
+    <Import Include="System.Web.Profile" />
+    <Import Include="System.Web.UI" />
+    <Import Include="System.Web.UI.WebControls" />
+    <Import Include="System.Web.UI.WebControls.WebParts" />
+    <Import Include="System.Web.UI.HtmlControls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddPhoto.ascx.designer.vb">
+      <DependentUpon>AddPhoto.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AddPhoto.ascx.vb">
+      <DependentUpon>AddPhoto.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddToCart.ashx.vb">
+      <DependentUpon>AddToCart.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Approve.ascx.designer.vb">
+      <DependentUpon>Approve.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Approve.ascx.vb">
+      <DependentUpon>Approve.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Base\SimpleGalleryBase.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Base\SimpleGalleryControlBase.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Base\SimpleGalleryPageBase.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BulkEdit.ascx.designer.vb">
+      <DependentUpon>BulkEdit.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="BulkEdit.ascx.vb">
+      <DependentUpon>BulkEdit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Common\CompressionType.vb" />
+    <Compile Include="Common\Constants.vb" />
+    <Compile Include="Common\AlbumSortType.vb" />
+    <Compile Include="Common\TemplateType.vb" />
+    <Compile Include="Common\ThumbnailType.vb" />
+    <Compile Include="Common\DisplayType.vb" />
+    <Compile Include="Common\WatermarkPosition.vb" />
+    <Compile Include="Common\ModeType.vb" />
+    <Compile Include="Common\SlideshowType.vb" />
+    <Compile Include="Common\SortDirection.vb" />
+    <Compile Include="Common\SortType.vb" />
+    <Compile Include="Controls\EditPhotos.ascx.designer.vb">
+      <DependentUpon>EditPhotos.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\EditPhotos.ascx.vb">
+      <DependentUpon>EditPhotos.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\GalleryMenu.ascx.designer.vb">
+      <DependentUpon>GalleryMenu.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GalleryMenu.ascx.vb">
+      <DependentUpon>GalleryMenu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\ViewAlbums.ascx.designer.vb">
+      <DependentUpon>ViewAlbums.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ViewAlbums.ascx.vb">
+      <DependentUpon>ViewAlbums.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\ViewPhotos.ascx.designer.vb">
+      <DependentUpon>ViewPhotos.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ViewPhotos.ascx.vb">
+      <DependentUpon>ViewPhotos.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Entities\Template\TemplateTokenAddToCartInfo.vb" />
+    <Compile Include="ViewCart.ashx.vb">
+      <DependentUpon>ViewCart.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="DownloadPhoto.ashx.vb">
+      <DependentUpon>DownloadPhoto.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchBox.ascx.designer.vb">
+      <DependentUpon>SearchBox.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchBox.ascx.vb">
+      <DependentUpon>SearchBox.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewSearch.ascx.designer.vb">
+      <DependentUpon>ViewSearch.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewSearch.ascx.vb">
+      <DependentUpon>ViewSearch.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Entities\MetaData\XmpReader.vb" />
+    <Compile Include="ImageHandlerLarge.ashx.vb">
+      <DependentUpon>ImageHandlerLarge.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="EditAlbum.ascx.designer.vb">
+      <DependentUpon>EditAlbum.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="EditAlbum.ascx.vb">
+      <DependentUpon>EditAlbum.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditAlbums.ascx.designer.vb">
+      <DependentUpon>EditAlbums.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="EditAlbums.ascx.vb">
+      <DependentUpon>EditAlbums.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditPhoto.ascx.designer.vb">
+      <DependentUpon>EditPhoto.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="EditPhoto.ascx.vb">
+      <DependentUpon>EditPhoto.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditSortOrder.ascx.designer.vb">
+      <DependentUpon>EditSortOrder.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="EditSortOrder.ascx.vb">
+      <DependentUpon>EditSortOrder.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditTag.ascx.designer.vb">
+      <DependentUpon>EditTag.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="EditTag.ascx.vb">
+      <DependentUpon>EditTag.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditTags.ascx.designer.vb">
+      <DependentUpon>EditTags.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="EditTags.ascx.vb">
+      <DependentUpon>EditTags.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditTemplate.ascx.designer.vb">
+      <DependentUpon>EditTemplate.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="EditTemplate.ascx.vb">
+      <DependentUpon>EditTemplate.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Entities\AlbumController.vb" />
+    <Compile Include="Entities\AlbumInfo.vb" />
+    <Compile Include="Entities\CrumbInfo.vb" />
+    <Compile Include="Entities\GallerySettings.vb" />
+    <Compile Include="Entities\PhotoController.vb" />
+    <Compile Include="Entities\PhotoInfo.vb" />
+    <Compile Include="Entities\SettingController.vb" />
+    <Compile Include="Entities\TagController.vb" />
+    <Compile Include="Entities\TagInfo.vb" />
+    <Compile Include="Entities\Template\TemplateController.vb" />
+    <Compile Include="Entities\Template\TemplateInfo.vb" />
+    <Compile Include="Entities\Template\TemplateTokenAlbumInfo.vb" />
+    <Compile Include="Entities\Template\TemplateTokenPhotoInfo.vb" />
+    <Compile Include="Entities\Template\TemplateType.vb" />
+    <Compile Include="Gallery.ascx.designer.vb">
+      <DependentUpon>Gallery.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Gallery.ascx.vb">
+      <DependentUpon>Gallery.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ImageHandler.ashx.vb">
+      <DependentUpon>ImageHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Providers\DataProviders\DataProvider.vb" />
+    <Compile Include="RandomPhoto.ascx.designer.vb">
+      <DependentUpon>RandomPhoto.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="RandomPhoto.ascx.vb">
+      <DependentUpon>RandomPhoto.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RandomPhotoOptions.ascx.designer.vb">
+      <DependentUpon>RandomPhotoOptions.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="RandomPhotoOptions.ascx.vb">
+      <DependentUpon>RandomPhotoOptions.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RSS.aspx.designer.vb">
+      <DependentUpon>RSS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RSS.aspx.vb">
+      <DependentUpon>RSS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Search.ascx.designer.vb">
+      <DependentUpon>Search.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Search.ascx.vb">
+      <DependentUpon>Search.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchOptions.ascx.designer.vb">
+      <DependentUpon>SearchOptions.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchOptions.ascx.vb">
+      <DependentUpon>SearchOptions.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SlideShow.ascx.designer.vb">
+      <DependentUpon>SlideShow.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="SlideShow.ascx.vb">
+      <DependentUpon>SlideShow.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SlideShowPopup.aspx.designer.vb">
+      <DependentUpon>SlideShowPopup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SlideShowPopup.aspx.vb">
+      <DependentUpon>SlideShowPopup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TagCloud.ascx.designer.vb">
+      <DependentUpon>TagCloud.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="TagCloud.ascx.vb">
+      <DependentUpon>TagCloud.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TagCloudOptions.ascx.designer.vb">
+      <DependentUpon>TagCloudOptions.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="TagCloudOptions.ascx.vb">
+      <DependentUpon>TagCloudOptions.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tags.ascx.designer.vb">
+      <DependentUpon>Tags.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Tags.ascx.vb">
+      <DependentUpon>Tags.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Uploader.aspx.designer.vb">
+      <DependentUpon>Uploader.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Uploader.aspx.vb">
+      <DependentUpon>Uploader.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewGallery.ascx.designer.vb">
+      <DependentUpon>ViewGallery.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewGallery.ascx.vb">
+      <DependentUpon>ViewGallery.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewOptions.ascx.designer.vb">
+      <DependentUpon>ViewOptions.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewOptions.ascx.vb">
+      <DependentUpon>ViewOptions.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewTag.ascx.designer.vb">
+      <DependentUpon>ViewTag.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewTag.ascx.vb">
+      <DependentUpon>ViewTag.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ZipAlbum.ascx.designer.vb">
+      <DependentUpon>ZipAlbum.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ZipAlbum.ascx.vb">
+      <DependentUpon>ZipAlbum.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AddPhoto.ascx" />
+    <Content Include="Approve.ascx" />
+    <Content Include="App_LocalResources\AddPhoto.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\Approve.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\BulkEdit.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\EditAlbum.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\EditAlbums.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\EditPhoto.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\EditPhotos.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\EditSortOrder.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\EditTag.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\EditTags.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\EditTemplate.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\Gallery.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\RandomPhoto.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\RandomPhotoOptions.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\SlideShow.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\TagCloud.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\TagCloudOptions.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\Tags.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\GalleryMenu.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\ViewAlbums.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\ViewGallery.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\ViewOptions.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\ViewPhotos.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\ViewTag.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="BulkEdit.ascx" />
+    <Content Include="Controls\EditPhotos.ascx" />
+    <Content Include="Controls\GalleryMenu.ascx" />
+    <Content Include="Controls\ViewAlbums.ascx" />
+    <Content Include="Controls\ViewPhotos.ascx" />
+    <Content Include="EditAlbum.ascx" />
+    <Content Include="EditAlbums.ascx" />
+    <Content Include="EditPhoto.ascx" />
+    <Content Include="EditSortOrder.ascx" />
+    <Content Include="EditTag.ascx" />
+    <Content Include="EditTags.ascx" />
+    <Content Include="EditTemplate.ascx" />
+    <Content Include="Gallery.ascx" />
+    <Content Include="Images\Borders\Black\album-bstretch.gif" />
+    <Content Include="Images\Borders\Black\album-l1.gif" />
+    <Content Include="Images\Borders\Black\album-l2.gif" />
+    <Content Include="Images\Borders\Black\album-l3.gif" />
+    <Content Include="Images\Borders\Black\album-l4.gif" />
+    <Content Include="Images\Borders\Black\album-lstretch.gif" />
+    <Content Include="Images\Borders\Black\album-mbl.gif" />
+    <Content Include="Images\Borders\Black\album-mbr.gif" />
+    <Content Include="Images\Borders\Black\album-mtl.gif" />
+    <Content Include="Images\Borders\Black\album-mtr.gif" />
+    <Content Include="Images\Borders\Black\album-r1.gif" />
+    <Content Include="Images\Borders\Black\album-r2.gif" />
+    <Content Include="Images\Borders\Black\album-r3.gif" />
+    <Content Include="Images\Borders\Black\album-r4.gif" />
+    <Content Include="Images\Borders\Black\album-rstretch.gif" />
+    <Content Include="Images\Borders\Black\album-tstretch.gif" />
+    <Content Include="Images\Borders\Black\frame-bot--x.gif" />
+    <Content Include="Images\Borders\Black\frame-bot-x-.gif" />
+    <Content Include="Images\Borders\Black\frame-botx--.gif" />
+    <Content Include="Images\Borders\Black\frame-mid--x.gif" />
+    <Content Include="Images\Borders\Black\frame-midx--.gif" />
+    <Content Include="Images\Borders\Black\frame-top--x.gif" />
+    <Content Include="Images\Borders\Black\frame-top-x-.gif" />
+    <Content Include="Images\Borders\Black\frame-topx--.gif" />
+    <Content Include="Images\Borders\Blank\album-bstretch.gif" />
+    <Content Include="Images\Borders\Blank\album-l1.gif" />
+    <Content Include="Images\Borders\Blank\album-l2.gif" />
+    <Content Include="Images\Borders\Blank\album-l3.gif" />
+    <Content Include="Images\Borders\Blank\album-l4.gif" />
+    <Content Include="Images\Borders\Blank\album-lstretch.gif" />
+    <Content Include="Images\Borders\Blank\album-mbl.gif" />
+    <Content Include="Images\Borders\Blank\album-mbr.gif" />
+    <Content Include="Images\Borders\Blank\album-mtl.gif" />
+    <Content Include="Images\Borders\Blank\album-mtr.gif" />
+    <Content Include="Images\Borders\Blank\album-r1.gif" />
+    <Content Include="Images\Borders\Blank\album-r2.gif" />
+    <Content Include="Images\Borders\Blank\album-r3.gif" />
+    <Content Include="Images\Borders\Blank\album-r4.gif" />
+    <Content Include="Images\Borders\Blank\album-rstretch.gif" />
+    <Content Include="Images\Borders\Blank\album-tstrech.gif" />
+    <Content Include="Images\Borders\Blank\frame-bot--x.gif" />
+    <Content Include="Images\Borders\Blank\frame-bot-x-.gif" />
+    <Content Include="Images\Borders\Blank\frame-botx--.gif" />
+    <Content Include="Images\Borders\Blank\frame-mid--x.gif" />
+    <Content Include="Images\Borders\Blank\frame-midx--.gif" />
+    <Content Include="Images\Borders\Blank\frame-top--x.gif" />
+    <Content Include="Images\Borders\Blank\frame-top-x-.gif" />
+    <Content Include="Images\Borders\Blank\frame-topx--.gif" />
+    <Content Include="Images\Borders\White\album-bstretch.gif" />
+    <Content Include="Images\Borders\White\album-l1.gif" />
+    <Content Include="Images\Borders\White\album-l2.gif" />
+    <Content Include="Images\Borders\White\album-l3.gif" />
+    <Content Include="Images\Borders\White\album-l4.gif" />
+    <Content Include="Images\Borders\White\album-lstretch.gif" />
+    <Content Include="Images\Borders\White\album-mbl.gif" />
+    <Content Include="Images\Borders\White\album-mbr.gif" />
+    <Content Include="Images\Borders\White\album-mtl.gif" />
+    <Content Include="Images\Borders\White\album-mtr.gif" />
+    <Content Include="Images\Borders\White\album-r1.gif" />
+    <Content Include="Images\Borders\White\album-r2.gif" />
+    <Content Include="Images\Borders\White\album-r3.gif" />
+    <Content Include="Images\Borders\White\album-r4.gif" />
+    <Content Include="Images\Borders\White\album-rstretch.gif" />
+    <Content Include="Images\Borders\White\album-tstretch.gif" />
+    <Content Include="Images\Borders\White\frame-bot--x.gif" />
+    <Content Include="Images\Borders\White\frame-bot-x-.gif" />
+    <Content Include="Images\Borders\White\frame-botx--.gif" />
+    <Content Include="Images\Borders\White\frame-mid--x.gif" />
+    <Content Include="Images\Borders\White\frame-midx--.gif" />
+    <Content Include="Images\Borders\White\frame-top--x.gif" />
+    <Content Include="Images\Borders\White\frame-top-x-.gif" />
+    <Content Include="Images\Borders\White\frame-topx--.gif" />
+    <Content Include="Images\iconCancel.gif" />
+    <Content Include="Images\iconRSS.gif" />
+    <Content Include="Images\iconSave.gif" />
+    <Content Include="Images\iconStep1.gif" />
+    <Content Include="Images\iconStep2.gif" />
+    <Content Include="Images\iconStep3.gif" />
+    <Content Include="Images\Lightbox\lightbox-blank.gif" />
+    <Content Include="Images\Lightbox\lightbox-ico-loading.gif" />
+    <Content Include="Images\placeholder-600.jpg" />
+    <Content Include="Images\xml.gif" />
+    <Content Include="Images\xml_small.gif" />
+    <Content Include="JS\Lightbox\jquery.js" />
+    <Content Include="JS\Lightbox\jquery.lightbox-0.4.js" />
+    <Content Include="JS\Lightbox\jquery.lightbox-0.4.pack.js" />
+    <Content Include="App_LocalResources\Search.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\SearchOptions.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\ViewSearch.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\SearchBox.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\gallery.png" />
+    <Content Include="JS\SWFUpload\swfupload.2.2.0.js" />
+    <Content Include="JS\SWFUpload\swfupload.2.2.0.swf" />
+    <Content Include="SearchBox.ascx" />
+    <Content Include="ViewSearch.ascx" />
+    <Content Include="ImageHandler.ashx" />
+    <Content Include="Images\SWFUpload\error.gif" />
+    <Content Include="Images\SWFUpload\toobig.gif" />
+    <Content Include="Images\SWFUpload\uploadlimit.gif" />
+    <Content Include="Images\SWFUpload\XPButtonNoText_160x22.png" />
+    <Content Include="Images\SWFUpload\zerobyte.gif" />
+    <Content Include="JS\SWFUpload\handlers.2.2.0.js" />
+    <Content Include="module.css" />
+    <Content Include="RandomPhoto.ascx" />
+    <Content Include="RandomPhotoOptions.ascx" />
+    <Content Include="RSS.aspx" />
+    <Content Include="RSS.xsl" />
+    <Content Include="Search.ascx" />
+    <Content Include="SearchOptions.ascx" />
+    <Content Include="SlideShow.ascx" />
+    <Content Include="SlideShowPopup.aspx" />
+    <Content Include="TagCloud.ascx" />
+    <Content Include="TagCloudOptions.ascx" />
+    <Content Include="Tags.ascx" />
+    <Content Include="Uploader.aspx" />
+    <Content Include="ViewGallery.ascx" />
+    <Content Include="ViewOptions.ascx" />
+    <Content Include="ViewTag.ascx" />
+    <Content Include="ImageHandlerLarge.ashx" />
+    <Content Include="DownloadPhoto.ashx" />
+    <Content Include="AddToCart.ashx" />
+    <Content Include="ViewCart.ashx" />
+    <None Include="SimpleGallery.dnn5" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="SimpleGallery.dnn" />
+    <Content Include="web.config" />
+    <Content Include="ZipAlbum.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ImageResizer\Ventrian.ImageResizer.csproj">
+      <Project>{EB15D2AE-D3AB-46CF-AEDD-3C3F3B653C9F}</Project>
+      <Name>Ventrian.ImageResizer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" Condition="" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>59528</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

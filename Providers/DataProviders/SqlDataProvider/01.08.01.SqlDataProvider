@@ -1,0 +1,129 @@
+﻿DROP PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_GetRandomPhoto
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_GetRandomPhoto
+	@AlbumID int,
+	@ModuleID int,
+	@Count int  
+AS
+
+DECLARE @level int, @line int
+ 
+CREATE TABLE #hierarchy(AlbumID int, level int)
+CREATE TABLE #stack (item int, level int)
+INSERT INTO #stack VALUES (@AlbumID, 1)
+SELECT @level = 1
+ 
+WHILE @level > 0
+BEGIN
+   IF EXISTS (SELECT * FROM #stack WHERE level = @level)
+      BEGIN
+         SELECT @AlbumID = item
+         FROM #stack
+         WHERE level = @level
+ 
+ 	insert into #hierarchy(AlbumID, level) values(@AlbumID, @level) 
+ 
+         DELETE FROM #stack
+         WHERE level = @level
+            AND item = @AlbumID
+ 
+         INSERT #stack
+            SELECT AlbumID, @level + 1
+            FROM {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Album
+            WHERE parentAlbumID = @AlbumID and ModuleID = @ModuleID 
+     	    ORDER BY Caption desc
+ 
+         IF @@ROWCOUNT > 0
+            SELECT @level = @level + 1
+      END
+   ELSE
+      SELECT @level = @level - 1
+END -- WHILE
+ 
+SET ROWCOUNT @Count
+
+   SELECT 
+	p.[PhotoID],
+	p.[AlbumID], 
+	p.[ModuleID],
+	p.[Name],
+	p.[Description],
+	p.[FileName],
+	p.[DateCreated],
+	p.[Width],
+	p.[Height],
+	p.[IsDefault],
+	p.[AuthorID],
+	p.[ApproverID],
+	p.[IsApproved],
+	p.[DateApproved],
+	a.[HomeDirectory] 
+   FROM 
+	{databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Photo p, 
+	{databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Album a, 
+	#hierarchy
+   WHERE
+	#hierarchy.AlbumID = a.AlbumID
+	AND
+	a.[AlbumID] = p.[AlbumID]
+	AND
+	p.[IsApproved] = 1 
+   ORDER BY
+	newID()
+
+drop table #hierarchy
+drop table #stack
+GO
+
+DROP PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoList
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoList
+	@ModuleID int, 
+	@AlbumID int,
+	@IsApproved bit,
+	@MaxCount int   
+AS
+
+if( @MaxCount is not null )
+begin
+	SET ROWCOUNT @MaxCount 
+end
+
+SELECT
+	Photo.[PhotoID],
+	Photo.[ModuleID],
+	Photo.[AlbumID], 
+	Photo.[Name],
+	Photo.[Description],
+	Photo.[FileName],
+	Photo.[DateCreated],
+	Photo.[Width],
+	Photo.[Height],
+	Photo.[IsDefault],
+	Photo.[AuthorID],
+	Photo.[ApproverID],
+	Photo.[IsApproved],
+	Photo.[DateApproved],
+	Album.[HomeDirectory],
+	Author.[FirstName] as 'AuthorFirstName',
+	Author.[LastName] as 'AuthorLastName', 
+	Author.[UserName] as 'AuthorUserName', 
+	Approver.[FirstName] as 'ApproverFirstName',
+	Approver.[LastName] as 'ApproverLastName', 
+	Approver.[UserName] as 'ApproverUserName'  
+FROM         
+	{objectQualifier}DnnForge_SimpleGallery_Photo Photo INNER JOIN
+		{objectQualifier}DnnForge_SimpleGallery_Album Album ON Photo.AlbumID = Album.AlbumID LEFT OUTER JOIN
+        {objectQualifier}Users Author ON Photo.AuthorID = Author.UserID LEFT OUTER JOIN
+        {objectQualifier}Users Approver ON Photo.ApproverID = Approver.UserID 
+WHERE
+	(@AlbumID is null or Photo.[AlbumID] = @AlbumID) 
+	AND
+	Photo.[ModuleID] = @ModuleID 
+	AND
+	Photo.[IsApproved] = @IsApproved 
+ORDER BY
+	Photo.[Name] 
+GO

@@ -1,0 +1,117 @@
+﻿CREATE TABLE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Photo (
+	[PhotoID] [int] IDENTITY (1, 1) NOT NULL ,
+	[ModuleID] [int] NOT NULL ,
+	[Name] [nvarchar] (100) NOT NULL ,
+	[Description] [nvarchar] (255) NULL ,
+	[FileName] [nvarchar] (255) NOT NULL ,
+	[DateCreated] [datetime] NOT NULL ,
+	[Width] [int] NOT NULL ,
+	[Height] [int] NOT NULL 
+) ON [PRIMARY]
+GO
+
+ALTER TABLE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Photo ADD 
+	CONSTRAINT [PK_{objectQualifier}DnnForge_SimpleGallery_Photo] PRIMARY KEY  CLUSTERED 
+	(
+		[PhotoID]
+	)  ON [PRIMARY] 
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoGet
+	@PhotoID int
+AS
+
+SELECT
+	[PhotoID],
+	[ModuleID],
+	[Name],
+	[Description],
+	[FileName],
+	[DateCreated],
+	[Width],
+	[Height] 
+FROM {objectQualifier}DnnForge_SimpleGallery_Photo
+WHERE
+	[PhotoID] = @PhotoID
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoList
+	@ModuleID int
+AS
+
+SELECT
+	[PhotoID],
+	[ModuleID],
+	[Name],
+	[Description],
+	[FileName],
+	[DateCreated],
+	[Width],
+	[Height] 
+FROM {objectQualifier}DnnForge_SimpleGallery_Photo
+WHERE
+	[ModuleID] = @ModuleID
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoAdd
+	@ModuleID int,
+	@Name nvarchar(100),
+	@Description nvarchar(255),
+	@FileName nvarchar(255),
+	@DateCreated datetime, 
+	@Width int,
+	@Height int
+AS
+
+INSERT INTO {objectQualifier}DnnForge_SimpleGallery_Photo (
+	[ModuleID],
+	[Name],
+	[Description],
+	[FileName],
+	[DateCreated],
+	[Width],
+	[Height] 
+) VALUES (
+	@ModuleID,
+	@Name,
+	@Description,
+	@FileName,
+	@DateCreated, 
+	@Width,
+	@Height 
+)
+
+select SCOPE_IDENTITY()
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoUpdate
+	@PhotoID int, 
+	@ModuleID int, 
+	@Name nvarchar(100), 
+	@Description nvarchar(255), 
+	@FileName nvarchar(255), 
+	@DateCreated datetime, 
+	@Width int,
+	@Height int
+AS
+
+UPDATE {objectQualifier}DnnForge_SimpleGallery_Photo SET
+	[ModuleID] = @ModuleID,
+	[Name] = @Name,
+	[Description] = @Description,
+	[FileName] = @FileName,
+	[DateCreated] = @DateCreated,
+	[Width] = @Width,
+	[Height] = @Height 
+WHERE
+	[PhotoID] = @PhotoID
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoDelete
+	@PhotoID int
+AS
+
+DELETE FROM {objectQualifier}DnnForge_SimpleGallery_Photo
+WHERE
+	[PhotoID] = @PhotoID
+GO

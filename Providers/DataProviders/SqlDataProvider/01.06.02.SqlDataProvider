@@ -1,0 +1,25 @@
+﻿DROP PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_AlbumUpdate
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_AlbumUpdate
+	@AlbumID int, 
+	@ModuleID int,
+	@ParentAlbumID int, 
+	@Caption nvarchar(255),
+	@Description nvarchar(255), 
+	@IsPublic bit,
+	@HomeDirectory nvarchar(255),
+	@Password nvarchar(50) 
+AS
+
+UPDATE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Album SET
+	[ModuleID] = @ModuleID,
+	[ParentAlbumID] = @ParentAlbumID, 
+	[Caption] = @Caption,
+	[Description] = @Description, 
+	[IsPublic] = @IsPublic,
+	[HomeDirectory] = @HomeDirectory,
+	[Password] = @Password 
+WHERE
+	[AlbumID] = @AlbumID
+GO

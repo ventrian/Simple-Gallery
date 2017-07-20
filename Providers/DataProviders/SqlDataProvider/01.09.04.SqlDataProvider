@@ -1,0 +1,2 @@
+﻿DELETE FROM {databaseOwner}{objectQualifier}ModuleDefinitions WHERE FriendlyName = 'Simple Gallery'
+GO

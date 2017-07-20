@@ -1,0 +1,714 @@
+<dotnetnuke type="Package" version="5.0">
+  <packages>
+    <package name="SimpleGallery" type="Module" version="2.4.39">
+      <friendlyName>Ventrian Gallery</friendlyName>
+      <description>An image gallery extension for DotNetNuke.</description>
+      <iconFile>Images/Gallery.png</iconFile>
+      <owner>
+        <name>Scott McCulloch</name>
+        <organization>Ventrian</organization>
+        <url>www.ventrian.com</url>
+        <email>support@ventrian.com</email>
+      </owner>
+      <license>The license for this package is not currently included within the installation file, please check with the vendor for full license details.</license>
+      <releaseNotes>Added new ISINROLE and ISNOTINROLE tokens.</releaseNotes>
+      <components>
+<component type="Assembly"> 
+  <assemblies> 
+    <assembly> 
+      <path>bin</path> 
+      <name>Ventrian.SimpleGallery.dll</name> 
+      <sourceFileName>Ventrian.SimpleGallery.dll</sourceFileName> 
+    </assembly>
+    <assembly> 
+      <path>bin</path> 
+      <name>Ventrian.SimpleGallery.SqlDataProvider.dll</name> 
+      <sourceFileName>Ventrian.SimpleGallery.SqlDataProvider.dll</sourceFileName> 
+    </assembly>
+    <assembly> 
+      <path>bin</path> 
+      <name>Ventrian.ImageResizer.dll</name> 
+      <sourceFileName>Ventrian.ImageResizer.dll</sourceFileName> 
+    </assembly>
+  </assemblies>
+</component>
+        <component type="Script">
+          <scripts>
+            <basePath>DesktopModules\SimpleGallery</basePath>
+            <script type="Install">
+              <name>01.00.00.SqlDataProvider</name>
+              <version>01.00.00</version>
+            </script>
+            <script type="Install">
+              <name>01.02.00.SqlDataProvider</name>
+              <version>01.02.00</version>
+            </script>
+            <script type="Install">
+              <name>01.05.00.SqlDataProvider</name>
+              <version>01.05.00</version>
+            </script>
+            <script type="Install">
+              <name>01.05.01.SqlDataProvider</name>
+              <version>01.05.01</version>
+            </script>
+            <script type="Install">
+              <name>01.06.00.SqlDataProvider</name>
+              <version>01.06.00</version>
+            </script>
+            <script type="Install">
+              <name>01.06.01.SqlDataProvider</name>
+              <version>01.06.01</version>
+            </script>
+            <script type="Install">
+              <name>01.06.02.SqlDataProvider</name>
+              <version>01.06.02</version>
+            </script>
+            <script type="Install">
+              <name>01.07.00.SqlDataProvider</name>
+              <version>01.07.00</version>
+            </script>
+            <script type="Install">
+              <name>01.08.00.SqlDataProvider</name>
+              <version>01.08.00</version>
+            </script>
+            <script type="Install">
+              <name>01.08.01.SqlDataProvider</name>
+              <version>01.08.01</version>
+            </script>
+            <script type="Install">
+              <name>01.08.02.SqlDataProvider</name>
+              <version>01.08.02</version>
+            </script>
+            <script type="Install">
+              <name>01.08.03.SqlDataProvider</name>
+              <version>01.08.03</version>
+            </script>
+            <script type="Install">
+              <name>01.08.04.SqlDataProvider</name>
+              <version>01.08.04</version>
+            </script>
+            <script type="Install">
+              <name>01.09.01.SqlDataProvider</name>
+              <version>01.09.01</version>
+            </script>
+            <script type="Install">
+              <name>01.09.02.SqlDataProvider</name>
+              <version>01.09.02</version>
+            </script>
+            <script type="Install">
+              <name>01.09.03.SqlDataProvider</name>
+              <version>01.09.03</version>
+            </script>
+            <script type="Install">
+              <name>01.09.04.SqlDataProvider</name>
+              <version>01.09.04</version>
+            </script>
+            <script type="Install">
+              <name>01.09.05.SqlDataProvider</name>
+              <version>01.09.05</version>
+            </script>
+            <script type="Install">
+              <name>02.00.00.SqlDataProvider</name>
+              <version>02.00.00</version>
+            </script>
+            <script type="Install">
+              <name>02.01.02.SqlDataProvider</name>
+              <version>02.01.02</version>
+            </script>
+            <script type="Install">
+              <name>02.01.05.SqlDataProvider</name>
+              <version>02.01.05</version>
+            </script>
+            <script type="Install">
+              <name>02.02.00.SqlDataProvider</name>
+              <version>02.02.00</version>
+            </script>
+            <script type="Install">
+              <name>02.02.06.SqlDataProvider</name>
+              <version>02.02.06</version>
+            </script>
+            <script type="Install">
+              <name>02.03.00.SqlDataProvider</name>
+              <version>02.03.00</version>
+            </script>
+            <script type="Install">
+              <name>02.03.01.SqlDataProvider</name>
+              <version>02.03.01</version>
+            </script>
+            <script type="Install">
+              <name>02.03.03.SqlDataProvider</name>
+              <version>02.03.03</version>
+            </script>
+            <script type="Install">
+              <name>02.03.05.SqlDataProvider</name>
+              <version>02.03.05</version>
+            </script>
+            <script type="Install">
+              <name>02.03.08.SqlDataProvider</name>
+              <version>02.03.08</version>
+            </script>
+            <script type="Install">
+              <name>02.03.10.SqlDataProvider</name>
+              <version>02.03.10</version>
+            </script>
+            <script type="Install">
+              <name>02.03.11.SqlDataProvider</name>
+              <version>02.03.11</version>
+            </script>
+            <script type="Install">
+              <name>02.03.12.SqlDataProvider</name>
+              <version>02.03.12</version>
+            </script>
+            <script type="Install">
+              <name>02.03.14.SqlDataProvider</name>
+              <version>02.03.14</version>
+            </script>
+            <script type="Install">
+              <name>02.03.15.SqlDataProvider</name>
+              <version>02.03.15</version>
+            </script>
+            <script type="Install">
+              <name>02.03.17.SqlDataProvider</name>
+              <version>02.03.17</version>
+            </script>
+            <script type="Install">
+              <name>02.04.00.SqlDataProvider</name>
+              <version>02.04.00</version>
+            </script>
+            <script type="Install">
+              <name>02.04.05.SqlDataProvider</name>
+              <version>02.04.05</version>
+            </script>
+            <script type="Install">
+              <name>02.04.06.SqlDataProvider</name>
+              <version>02.04.06</version>
+            </script>
+            <script type="Install">
+              <name>02.04.14.SqlDataProvider</name>
+              <version>02.04.14</version>
+            </script>
+            <script type="Install">
+              <name>02.04.33.SqlDataProvider</name>
+              <version>02.04.33</version>
+            </script>
+            <script type="Install">
+              <name>02.04.39.SqlDataProvider</name>
+              <version>02.04.39</version>
+            </script>
+            <script type="UnInstall">
+              <name>uninstall.SqlDataProvider</name>
+              <version>2.4.33</version>
+            </script>
+          </scripts>
+        </component>
+        <component type="Module">
+          <desktopModule>
+            <moduleName>SimpleGallery</moduleName>
+            <foldername>SimpleGallery</foldername>
+            <businessControllerClass>Ventrian.SimpleGallery.Entities.PhotoController, Ventrian.SimpleGallery</businessControllerClass>
+            <supportedFeatures>
+              <supportedFeature type="Portable" />
+              <supportedFeature type="Searchable" />
+            </supportedFeatures>
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>SimpleGallery</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/SimpleGallery/Gallery.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>Add</controlKey>
+                    <controlSrc>DesktopModules/SimpleGallery/AddPhoto.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>Add New Photo</controlTitle>
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>Approve</controlKey>
+                    <controlSrc>DesktopModules/SimpleGallery/Approve.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>Approve Photos</controlTitle>
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>BulkEdit</controlKey>
+                    <controlSrc>DesktopModules/SimpleGallery/BulkEdit.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>Bulk Edit</controlTitle>
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>Edit</controlKey>
+                    <controlSrc>DesktopModules/SimpleGallery/EditPhoto.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>Edit Photo</controlTitle>
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>EditAlbum</controlKey>
+                    <controlSrc>DesktopModules/SimpleGallery/EditAlbum.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>Edit Album</controlTitle>
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>EditAlbums</controlKey>
+                    <controlSrc>DesktopModules/SimpleGallery/EditAlbums.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>Edit Albums</controlTitle>
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>EditTag</controlKey>
+                    <controlSrc>DesktopModules/SimpleGallery/EditTag.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>Edit Tag</controlTitle>
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>EditTags</controlKey>
+                    <controlSrc>DesktopModules/SimpleGallery/EditTags.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>Edit Tags</controlTitle>
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>EditTemplates</controlKey>
+                    <controlSrc>DesktopModules/SimpleGallery/EditTemplate.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>Edit Templates</controlTitle>
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>Settings</controlKey>
+                    <controlSrc>DesktopModules/SimpleGallery/ViewOptions.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>View Options</controlTitle>
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>SlideShow</controlKey>
+                    <controlSrc>DesktopModules/SimpleGallery/SlideShow.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>Slide Show</controlTitle>
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>SortOrder</controlKey>
+                    <controlSrc>DesktopModules/SimpleGallery/EditSortOrder.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>Edit Sort Order</controlTitle>
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+          <eventMessage>
+            <processorType>DotNetNuke.Entities.Modules.EventMessageProcessor, DotNetNuke</processorType>
+            <processorCommand>UpgradeModule</processorCommand>
+            <attributes>
+              <businessControllerClass>Ventrian.SimpleGallery.Entities.PhotoController, Ventrian.SimpleGallery</businessControllerClass>
+              <desktopModuleID>[DESKTOPMODULEID]</desktopModuleID>
+              <upgradeVersionsList>01.00.00,01.02.00,01.05.00,01.05.01,01.06.00,01.06.01,01.06.02,01.07.00,01.08.00,01.08.01,01.08.02,01.08.03,01.08.04,01.09.01,01.09.02,01.09.03,01.09.04,01.09.05,02.00.00,02.01.02,02.01.05,02.02.00,02.02.06,02.03.00,02.03.01,02.03.03,02.03.05,02.03.08,02.03.10,02.03.11,02.03.12,02.03.14,02.03.15,02.03.17,02.04.00,02.04.05,02.04.06,02.04.14,02.04.33</upgradeVersionsList>
+            </attributes>
+          </eventMessage>
+        </component>
+        <component type="File">
+          <files>
+            <basePath>DesktopModules\SimpleGallery</basePath>
+            <file>
+              <name>AddPhoto.ascx</name>
+            </file>
+            <file>
+              <name>AddToCart.ashx</name>
+            </file>
+            <file>
+              <name>Approve.ascx</name>
+            </file>
+            <file>
+              <name>BulkEdit.ascx</name>
+            </file>
+            <file>
+              <name>DownloadPhoto.ashx</name>
+            </file>
+            <file>
+              <name>EditAlbum.ascx</name>
+            </file>
+            <file>
+              <name>EditAlbums.ascx</name>
+            </file>
+            <file>
+              <name>EditPhoto.ascx</name>
+            </file>
+            <file>
+              <name>EditSortOrder.ascx</name>
+            </file>
+            <file>
+              <name>EditTag.ascx</name>
+            </file>
+            <file>
+              <name>EditTags.ascx</name>
+            </file>
+            <file>
+              <name>EditTemplate.ascx</name>
+            </file>
+            <file>
+              <name>Gallery.ascx</name>
+            </file>
+            <file>
+              <name>ImageHandler.ashx</name>
+            </file>
+            <file>
+              <name>ImageHandlerLarge.ashx</name>
+            </file>
+            <file>
+              <name>Module.css</name>
+            </file>
+            <file>
+              <name>RSS.aspx</name>
+            </file>
+            <file>
+              <name>RSS.xsl</name>
+            </file>
+            <file>
+              <name>SearchBox.ascx</name>
+            </file>
+            <file>
+              <name>SlideShow.ascx</name>
+            </file>
+            <file>
+              <name>SlideShowPopup.aspx</name>
+            </file>
+            <file>
+              <name>Tags.ascx</name>
+            </file>
+            <file>
+              <name>Uploader.aspx</name>
+            </file>
+            <file>
+              <name>ViewCart.ashx</name>
+            </file>
+            <file>
+              <name>ViewGallery.ascx</name>
+            </file>
+            <file>
+              <name>ViewOptions.ascx</name>
+            </file>
+            <file>
+              <name>ViewSearch.ascx</name>
+            </file>
+            <file>
+              <name>ViewTag.ascx</name>
+            </file>
+            <file>
+              <name>web.config</name>
+            </file>
+            <file>
+              <name>ZipAlbum.ascx</name>
+            </file>
+          </files>
+        </component>
+        <component type="ResourceFile">
+          <resourceFiles>
+            <basePath>DesktopModules\SimpleGallery</basePath>
+            <resourceFile>
+              <name>Resources.zip</name>
+            </resourceFile>
+          </resourceFiles>
+        </component>
+      </components>
+    </package>
+    <package name="SimpleGallery Random" type="Module" version="2.4.39">
+      <friendlyName>Ventrian Gallery Latest</friendlyName>
+      <description>Displays the latest photos from a linked Ventrian Gallery instance.</description>
+      <owner>
+        <name>Scott McCulloch</name>
+        <organization>Ventrian</organization>
+        <url>www.ventrian.com</url>
+        <email>support@ventrian.com</email>
+      </owner>
+      <license>The license for this package is not currently included within the installation file, please check with the vendor for full license details.</license>
+      <releaseNotes />
+      <components>
+        <component type="Module">
+          <desktopModule>
+            <moduleName>SimpleGallery Random</moduleName>
+            <foldername>SimpleGallery Random</foldername>
+            <businessControllerClass>Ventrian.SimpleGallery.Entities.TagController, Ventrian.SimpleGallery</businessControllerClass>
+            <supportedFeatures />
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>SimpleGallery Random</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/SimpleGallery Random/RandomPhoto.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>Settings</controlKey>
+                    <controlSrc>DesktopModules/SimpleGallery Random/RandomPhotoOptions.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>Random Photo Options</controlTitle>
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+          <eventMessage>
+            <processorType>DotNetNuke.Entities.Modules.EventMessageProcessor, DotNetNuke</processorType>
+            <processorCommand>UpgradeModule</processorCommand>
+            <attributes>
+              <businessControllerClass>Ventrian.SimpleGallery.Entities.TagController, Ventrian.SimpleGallery</businessControllerClass>
+              <desktopModuleID>[DESKTOPMODULEID]</desktopModuleID>
+              <upgradeVersionsList />
+            </attributes>
+          </eventMessage>
+        </component>
+        <component type="File">
+          <files>
+            <basePath>DesktopModules\SimpleGallery Random</basePath>
+            <file>
+              <name>ImageHandler.ashx</name>
+            </file>
+            <file>
+              <name>module.css</name>
+            </file>
+            <file>
+              <name>RandomPhoto.ascx</name>
+            </file>
+            <file>
+              <name>RandomPhotoOptions.ascx</name>
+            </file>
+          </files>
+        </component>
+        <component type="ResourceFile">
+          <resourceFiles>
+            <basePath>DesktopModules\SimpleGallery Random</basePath>
+            <resourceFile>
+              <name>ResourcesRandom.zip</name>
+            </resourceFile>
+          </resourceFiles>
+        </component>
+      </components>
+    </package>
+    <package name="SimpleGallery Search" type="Module" version="2.4.39">
+      <friendlyName>Ventrian Gallery Search</friendlyName>
+      <description>Displays a search form for Ventrian Gallery.</description>
+      <owner>
+        <name>Scott McCulloch</name>
+        <organization>Ventrian</organization>
+        <url>www.ventrian.com</url>
+        <email>support@ventrian.com</email>
+      </owner>
+      <license>The license for this package is not currently included within the installation file, please check with the vendor for full license details.</license>
+      <releaseNotes />
+      <components>
+        <component type="Module">
+          <desktopModule>
+            <moduleName>SimpleGallery Search</moduleName>
+            <foldername>SimpleGallery Search</foldername>
+            <businessControllerClass>Ventrian.SimpleGallery.Entities.TagController, Ventrian.SimpleGallery</businessControllerClass>
+            <supportedFeatures />
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>Ventrian Gallery Search</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/SimpleGallery Search/Search.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>Settings</controlKey>
+                    <controlSrc>DesktopModules/SimpleGallery Search/SearchOptions.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>Search Options</controlTitle>
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+          <eventMessage>
+            <processorType>DotNetNuke.Entities.Modules.EventMessageProcessor, DotNetNuke</processorType>
+            <processorCommand>UpgradeModule</processorCommand>
+            <attributes>
+              <businessControllerClass>Ventrian.SimpleGallery.Entities.TagController, Ventrian.SimpleGallery</businessControllerClass>
+              <desktopModuleID>[DESKTOPMODULEID]</desktopModuleID>
+              <upgradeVersionsList />
+            </attributes>
+          </eventMessage>
+        </component>
+        <component type="File">
+          <files>
+            <basePath>DesktopModules\SimpleGallery Search</basePath>
+            <file>
+              <name>module.css</name>
+            </file>
+            <file>
+              <name>Search.ascx</name>
+            </file>
+            <file>
+              <name>SearchOptions.ascx</name>
+            </file>
+          </files>
+        </component>
+        <component type="ResourceFile">
+          <resourceFiles>
+            <basePath>DesktopModules\SimpleGallery Search</basePath>
+            <resourceFile>
+              <name>ResourcesSearch.zip</name>
+            </resourceFile>
+          </resourceFiles>
+        </component>
+      </components>
+    </package>
+    <package name="SimpleGallery Tag Cloud" type="Module" version="2.4.39">
+      <friendlyName>Ventrian Gallery Tag Cloud</friendlyName>
+      <description>Displays a tag cloud from selected albums.</description>
+      <owner>
+        <name>Scott McCulloch</name>
+        <organization>Ventrian</organization>
+        <url>www.ventrian.com</url>
+        <email>support@ventrian.com</email>
+      </owner>
+      <license>The license for this package is not currently included within the installation file, please check with the vendor for full license details.</license>
+      <releaseNotes />
+      <components>
+        <component type="Module">
+          <desktopModule>
+            <moduleName>SimpleGallery Tag Cloud</moduleName>
+            <foldername>SimpleGallery Tag Cloud</foldername>
+            <businessControllerClass>Ventrian.SimpleGallery.Entities.TagController, Ventrian.SimpleGallery</businessControllerClass>
+            <supportedFeatures />
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>SimpleGallery Tag Cloud</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/SimpleGallery Tag Cloud/TagCloud.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>Settings</controlKey>
+                    <controlSrc>DesktopModules/SimpleGallery Tag Cloud/TagCloudOptions.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>Tag Cloud Options</controlTitle>
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+          <eventMessage>
+            <processorType>DotNetNuke.Entities.Modules.EventMessageProcessor, DotNetNuke</processorType>
+            <processorCommand>UpgradeModule</processorCommand>
+            <attributes>
+              <businessControllerClass>Ventrian.SimpleGallery.Entities.TagController, Ventrian.SimpleGallery</businessControllerClass>
+              <desktopModuleID>[DESKTOPMODULEID]</desktopModuleID>
+              <upgradeVersionsList />
+            </attributes>
+          </eventMessage>
+        </component>
+        <component type="File">
+          <files>
+            <basePath>DesktopModules\SimpleGallery Tag Cloud</basePath>
+            <file>
+              <name>module.css</name>
+            </file>
+            <file>
+              <name>TagCloud.ascx</name>
+            </file>
+            <file>
+              <name>TagCloudOptions.ascx</name>
+            </file>
+          </files>
+        </component>
+        <component type="ResourceFile">
+          <resourceFiles>
+            <basePath>DesktopModules\SimpleGallery Tag Cloud</basePath>
+            <resourceFile>
+              <name>ResourcesTagCloud.zip</name>
+            </resourceFile>
+          </resourceFiles>
+        </component>
+      </components>
+    </package>
+  </packages>
+</dotnetnuke>

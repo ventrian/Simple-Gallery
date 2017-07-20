@@ -1,0 +1,7 @@
+﻿UPDATE 
+	{databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Photo
+SET
+	DateApproved = DateCreated 
+WHERE
+	DateApproved is null and IsApproved = 1
+GO

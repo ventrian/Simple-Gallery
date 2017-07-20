@@ -1,0 +1,10 @@
+﻿DROP PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_AlbumList
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_AlbumList
+	@ModuleID int,
+	@ParentAlbumID int, 
+	@ShowPublicOnly bit 
+AS
+
+GO

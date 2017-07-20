@@ -1,0 +1,91 @@
+﻿DROP PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_GetRandomPhoto
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_GetRandomPhoto
+	@AlbumID int,
+	@ModuleID int,
+	@Count int,
+	@TagID int 
+AS
+
+DECLARE @level int, @line int
+ 
+CREATE TABLE #hierarchy(AlbumID int, level int)
+CREATE TABLE #stack (item int, level int)
+INSERT INTO #stack VALUES (@AlbumID, 1)
+SELECT @level = 1
+ 
+WHILE @level > 0
+BEGIN
+   IF EXISTS (SELECT * FROM #stack WHERE level = @level)
+      BEGIN
+         SELECT @AlbumID = item
+         FROM #stack
+         WHERE level = @level
+ 
+ 	insert into #hierarchy(AlbumID, level) values(@AlbumID, @level) 
+ 
+         DELETE FROM #stack
+         WHERE level = @level
+            AND item = @AlbumID
+ 
+         INSERT #stack
+            SELECT AlbumID, @level + 1
+            FROM {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Album
+            WHERE parentAlbumID = @AlbumID and ModuleID = @ModuleID 
+     	    ORDER BY Caption desc
+ 
+         IF @@ROWCOUNT > 0
+            SELECT @level = @level + 1
+      END
+   ELSE
+      SELECT @level = @level - 1
+END -- WHILE
+ 
+SET ROWCOUNT @Count
+
+   SELECT 
+	p.[PhotoID],
+	p.[AlbumID], 
+	p.[ModuleID],
+	p.[Name],
+	p.[Description],
+	p.[FileName],
+	p.[DateCreated],
+	p.[Width],
+	p.[Height],
+	p.[IsDefault],
+	p.[AuthorID],
+	p.[ApproverID],
+	p.[IsApproved],
+	p.[DateApproved],
+	p.[DateUpdated],
+	a.[HomeDirectory],
+	a.[Caption] as 'AlbumName',   
+	Author.[FirstName] as 'AuthorFirstName',
+	Author.[LastName] as 'AuthorLastName', 
+	Author.[UserName] as 'AuthorUserName', 
+	Author.[DisplayName] as 'AuthorDisplayName', 
+	Approver.[FirstName] as 'ApproverFirstName',
+	Approver.[LastName] as 'ApproverLastName', 
+	Approver.[UserName] as 'ApproverUserName',
+	Approver.[DisplayName] as 'ApproverDisplayName',
+	{databaseOwner}{objectQualifier}Ventrian_SimpleGallery_SplitTags(p.[PhotoID]) as 'Tags'   
+   FROM 
+	#hierarchy INNER JOIN
+	    {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Album a ON #hierarchy.AlbumID = a.AlbumID INNER JOIN
+	    {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Photo p ON a.[AlbumID] = p.[AlbumID] LEFT OUTER JOIN
+        {databaseOwner}{objectQualifier}Users Author ON p.AuthorID = Author.UserID LEFT OUTER JOIN
+        {databaseOwner}{objectQualifier}Users Approver ON p.ApproverID = Approver.UserID 
+   WHERE
+	a.[IsPublic] = 1 
+	AND
+	p.[IsApproved] = 1 
+	AND
+	(@TagID is null OR @TagID in (SELECT pt.TagID FROM {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_PhotoTag pt WHERE pt.TagID = @TagID AND p.PhotoID = pt.PhotoID))
+   ORDER BY
+	newID()
+
+drop table #hierarchy
+drop table #stack
+GO

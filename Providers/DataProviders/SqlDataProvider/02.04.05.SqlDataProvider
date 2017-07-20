@@ -1,0 +1,267 @@
+﻿CREATE FUNCTION {databaseOwner}{objectQualifier}Ventrian_SimpleGallery_CountAlbums
+(@ModuleID int, @ParentAlbumID int, @ShowPublicOnly bit)
+RETURNS bigint 
+AS
+BEGIN
+
+	DECLARE @level int, @line int, @current int 
+
+	DECLARE @hierarchy TABLE(HierarchyID int IDENTITY (1,1), AlbumID int, level int)
+	DECLARE  @stack TABLE(item int, level int)
+	INSERT INTO @stack VALUES (@ParentAlbumID, 1)
+	SELECT @level = 1
+	 
+	WHILE @level > 0
+	BEGIN
+	   IF EXISTS (SELECT * FROM @stack WHERE level = @level)
+		  BEGIN
+			 SELECT @current = item
+			 FROM @stack
+			 WHERE level = @level
+	 
+	IF( @ParentAlbumID = -1 OR @ParentAlbumID != @current )
+	BEGIN
+ 		insert into @hierarchy(AlbumID, level) values(@current, @level) 
+	END
+	 
+			 DELETE FROM @stack
+			 WHERE level = @level
+				AND item = @current
+	 
+			 INSERT @stack
+				SELECT Album.AlbumID, @level + 1
+				FROM {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Album Album
+				WHERE Album.parentAlbumID = @current and ModuleID = @ModuleID 
+	 
+			 IF @@ROWCOUNT > 0
+				SELECT @level = @level + 1
+		  END
+	   ELSE
+		  SELECT @level = @level - 1
+	END -- WHILE
+
+	DECLARE @Count int
+	 
+	SELECT
+		@Count = COUNT(*)
+	FROM 
+		{databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Album Album, @hierarchy h
+	WHERE 
+		h.AlbumID = Album.AlbumID
+		AND
+		Album.[ModuleID] = @ModuleID
+		AND
+		([Album].[IsPublic] = @ShowPublicOnly OR [Album].[IsPublic] = 1)
+
+	RETURN @Count
+
+END
+GO
+
+CREATE FUNCTION {databaseOwner}{objectQualifier}Ventrian_SimpleGallery_CountPhotos 
+(@ModuleID int, @ParentAlbumID int, @ShowPublicOnly bit)
+RETURNS bigint 
+AS
+BEGIN
+
+	DECLARE @level int, @line int, @current int 
+
+	DECLARE @hierarchy TABLE(HierarchyID int IDENTITY (1,1), AlbumID int, level int)
+	DECLARE  @stack TABLE(item int, level int)
+	INSERT INTO @stack VALUES (@ParentAlbumID, 1)
+	SELECT @level = 1
+	 
+	WHILE @level > 0
+	BEGIN
+	   IF EXISTS (SELECT * FROM @stack WHERE level = @level)
+		  BEGIN
+			 SELECT @current = item
+			 FROM @stack
+			 WHERE level = @level
+	 
+	IF( @ParentAlbumID = -1 OR @ParentAlbumID != @current )
+	BEGIN
+ 		insert into @hierarchy(AlbumID, level) values(@current, @level) 
+	END
+	 
+			 DELETE FROM @stack
+			 WHERE level = @level
+				AND item = @current
+	 
+			 INSERT @stack
+				SELECT Album.AlbumID, @level + 1
+				FROM {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Album Album
+				WHERE Album.parentAlbumID = @current and ModuleID = @ModuleID 
+	 
+			 IF @@ROWCOUNT > 0
+				SELECT @level = @level + 1
+		  END
+	   ELSE
+		  SELECT @level = @level - 1
+	END -- WHILE
+
+	DECLARE @Count int
+	 
+	SELECT
+		@Count = COUNT(*)
+	FROM 
+		{databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Album Album, {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Photo Photo, @hierarchy h
+	WHERE 
+		h.AlbumID = Album.AlbumID
+		AND
+		Album.AlbumID = Photo.AlbumID
+		AND
+		Album.[ModuleID] = @ModuleID
+		AND
+		([Album].[IsPublic] = @ShowPublicOnly OR [Album].[IsPublic] = 1)
+
+	RETURN @Count
+
+END
+GO
+
+DROP PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_AlbumListAll
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_AlbumListAll
+	@ModuleID int,	
+	@ParentAlbumID int,
+	@ShowPublicOnly bit,
+	@ShowChildren bit,
+	@SortBy int,
+	@SortOrder int 
+as
+
+IF( @ShowChildren = 0 )
+BEGIN
+	SELECT
+		Album.[AlbumID],
+		Album.[ModuleID],
+		Album.[ParentAlbumID], 
+		Album.[Caption],
+		Album.[Description], 
+		Album.[IsPublic],
+		Album.[HomeDirectory],
+		Album.[Password], 
+		Album.[AlbumOrder], 
+		Album.[CreateDate], 
+		(select count(*) from {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Photo where AlbumID = Album.AlbumID and IsApproved = 1) as 'NumberOfPhotos',   
+		{databaseOwner}{objectQualifier}Ventrian_SimpleGallery_CountAlbums(@ModuleID, Album.[AlbumID], @ShowPublicOnly) AS 'NumberOfAlbums', 
+		{databaseOwner}{objectQualifier}Ventrian_SimpleGallery_CountPhotos(@ModuleID, Album.[AlbumID], @ShowPublicOnly) as 'NumberOfAlbumPhotos'  
+	FROM         
+		{databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Album Album
+	WHERE
+		Album.[ModuleID] = @ModuleID
+		AND
+		Album.[ParentAlbumID] = @ParentAlbumID 
+		AND
+		([Album].[IsPublic] = @ShowPublicOnly OR [Album].[IsPublic] = 1)
+	ORDER BY
+		CASE
+			WHEN @SortBy = 0 and @SortOrder = 0 THEN Album.[Caption]     
+      		END DESC,
+		CASE
+			WHEN @SortBy = 0 and @SortOrder = 1 THEN Album.[Caption]   
+      		END ASC,
+		CASE
+			WHEN @SortBy = 1 and @SortOrder = 0 THEN Album.[CreateDate]  
+      		END DESC,
+		CASE
+			WHEN @SortBy = 1 and @SortOrder = 1 THEN Album.[CreateDate]    
+      		END ASC,
+		CASE
+			WHEN @SortBy = 2 and @SortOrder = 0 THEN Album.[AlbumOrder]
+      		END DESC,
+		CASE
+			WHEN @SortBy = 2 and @SortOrder = 1 THEN Album.[AlbumOrder]   
+      		END ASC,
+		--CASE
+		--	WHEN @SortBy = 3 THEN newid() END
+		newid()
+END
+ELSE
+BEGIN
+	SET NOCOUNT ON
+	DECLARE @level int, @line int, @current int 
+
+	DECLARE @hierarchy TABLE(HierarchyID int IDENTITY (1,1), AlbumID int, level int)
+	DECLARE  @stack TABLE(item int, level int)
+	INSERT INTO @stack VALUES (@ParentAlbumID, 1)
+	SELECT @level = 1
+	 
+	WHILE @level > 0
+	BEGIN
+	   IF EXISTS (SELECT * FROM @stack WHERE level = @level)
+		  BEGIN
+			 SELECT @current = item
+			 FROM @stack
+			 WHERE level = @level
+	 
+	IF( @ParentAlbumID = -1 OR @ParentAlbumID != @current )
+	BEGIN
+ 		insert into @hierarchy(AlbumID, level) values(@current, @level) 
+	END
+	 
+			 DELETE FROM @stack
+			 WHERE level = @level
+				AND item = @current
+	 
+			 INSERT @stack
+				SELECT Album.AlbumID, @level + 1
+				FROM {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Album Album
+				WHERE Album.parentAlbumID = @current and ModuleID = @ModuleID 
+				ORDER BY
+					CASE
+						WHEN @SortBy = 0 and @SortOrder = 1 THEN Album.[Caption]     
+      					END DESC,
+					CASE
+						WHEN @SortBy = 0 and @SortOrder = 0 THEN Album.[Caption]   
+      					END ASC,
+					CASE
+						WHEN @SortBy = 1 and @SortOrder = 1 THEN Album.[CreateDate]  
+      					END DESC,
+					CASE
+						WHEN @SortBy = 1 and @SortOrder = 0 THEN Album.[CreateDate]    
+      					END ASC,
+					CASE
+						WHEN @SortBy = 2 and @SortOrder = 1 THEN Album.[AlbumOrder]
+      					END DESC,
+					CASE
+						WHEN @SortBy = 2 and @SortOrder = 0 THEN Album.[AlbumOrder]   
+      					END ASC,
+					newid()
+	 
+			 IF @@ROWCOUNT > 0
+				SELECT @level = @level + 1
+		  END
+	   ELSE
+		  SELECT @level = @level - 1
+	END -- WHILE
+	 
+	SELECT
+		Album.[AlbumID],
+		Album.[ModuleID],
+		Album.[ParentAlbumID], 
+		Album.[Caption],
+		Album.[Description], 
+		Album.[IsPublic],
+		Album.[HomeDirectory],
+		Album.[Password], 
+		Album.[AlbumOrder], 
+		Album.[CreateDate], 
+		(Select count(*) from {databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Photo Photo where Photo.AlbumID = Album.AlbumID) as 'NumberOfPhotos', 
+		{databaseOwner}{objectQualifier}Ventrian_SimpleGallery_CountAlbums(@ModuleID, Album.[AlbumID], @ShowPublicOnly) AS 'NumberOfAlbums',
+		{databaseOwner}{objectQualifier}Ventrian_SimpleGallery_CountPhotos(@ModuleID, Album.[AlbumID], @ShowPublicOnly) as 'NumberOfAlbumPhotos',
+		REPLICATE('.',(level-2)*2) + Album.[Caption] as 'CaptionIndented' 
+	FROM 
+		{databaseOwner}{objectQualifier}DnnForge_SimpleGallery_Album Album, @hierarchy h
+	WHERE 
+		h.AlbumID = Album.AlbumID
+		AND
+		Album.[ModuleID] = @ModuleID
+		AND
+		([Album].[IsPublic] = @ShowPublicOnly OR [Album].[IsPublic] = 1)
+	ORDER BY 
+		h.HierarchyID ASC
+END
+GO

@@ -1,0 +1,699 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BasicSettings.Text" xml:space="preserve">
+    <value>Basic Settings</value>
+  </data>
+  <data name="AdvancedSettings.Text" xml:space="preserve">
+    <value>Advanced Settings</value>
+  </data>
+  <data name="CompressionSettings.Text" xml:space="preserve">
+    <value>Compression Settings</value>
+  </data>
+  <data name="SlideShowSettings.Text" xml:space="preserve">
+    <value>Slide Show Settings</value>
+  </data>
+  <data name="SecuritySettings.Text" xml:space="preserve">
+    <value>Security Settings</value>
+  </data>
+  <data name="ResizePhoto.Text" xml:space="preserve">
+    <value>Resize Photo?</value>
+  </data>
+  <data name="ResizePhoto.Help" xml:space="preserve">
+    <value>Check to resize photo's during upload.</value>
+  </data>
+  <data name="CompressionType.Text" xml:space="preserve">
+    <value>Compression</value>
+  </data>
+  <data name="CompressionType.Help" xml:space="preserve">
+    <value>Select the appropriate compression algorithm.</value>
+  </data>
+  <data name="Quality.Text" xml:space="preserve">
+    <value>Highest Quality</value>
+  </data>
+  <data name="MinSize.Text" xml:space="preserve">
+    <value>Minimum File Size</value>
+  </data>
+  <data name="ImageWidth.Text" xml:space="preserve">
+    <value>Resize Width</value>
+  </data>
+  <data name="ImageWidth.Help" xml:space="preserve">
+    <value>The maximum width of resized photos and photos in the slideshow.</value>
+  </data>
+  <data name="valImageWidth.ErrorMessage" xml:space="preserve">
+    <value>&lt;br&gt;Image Width is Required</value>
+  </data>
+  <data name="ImageHeight.Text" xml:space="preserve">
+    <value>Resize Height</value>
+  </data>
+  <data name="ImageHeight.Help" xml:space="preserve">
+    <value>The maximum height of resized photos and photos in the slideshow..</value>
+  </data>
+  <data name="valImageHeight.ErrorMessage" xml:space="preserve">
+    <value>&lt;br&gt;Image Height is Required</value>
+  </data>
+  <data name="valImageHeightIsNumber.ErrorMessage" xml:space="preserve">
+    <value>&lt;br&gt;Image Height must be a number</value>
+  </data>
+  <data name="AlbumThumbnailWidth.Text" xml:space="preserve">
+    <value>Max Thumbnail Width</value>
+  </data>
+  <data name="AlbumThumbnailWidth.Help" xml:space="preserve">
+    <value>The maximum width of your album thumbnails.</value>
+  </data>
+  <data name="valAlbumThumbnailWidth.ErrorMessage" xml:space="preserve">
+    <value>&lt;br&gt;Max Album Thumbnail Width is Required</value>
+  </data>
+  <data name="valAlbumThumbnailWidthIsNumber.ErrorMessage" xml:space="preserve">
+    <value>&lt;br&gt;Max Album Thumbnail Width must be a number</value>
+  </data>
+  <data name="AlbumThumbnailHeight.Text" xml:space="preserve">
+    <value>Max Thumbnail Height</value>
+  </data>
+  <data name="AlbumThumbnailHeight.Help" xml:space="preserve">
+    <value>The maximum height of your album thumbnails.</value>
+  </data>
+  <data name="valAlbumThumbnailHeight.ErrorMessage" xml:space="preserve">
+    <value>&lt;br&gt;Max Album Thumbnail Height is Required</value>
+  </data>
+  <data name="valAlbumThumbnailHeightIsNumber.ErrorMessage" xml:space="preserve">
+    <value>&lt;br&gt;Max Album Thumbnail Height must be a number</value>
+  </data>
+  <data name="ThumbnailWidth.Text" xml:space="preserve">
+    <value>Max Thumbnail Width</value>
+  </data>
+  <data name="ThumbnailWidth.Help" xml:space="preserve">
+    <value>The maximum width of your photo thumbnails.</value>
+  </data>
+  <data name="valThumbnailWidth.ErrorMessage" xml:space="preserve">
+    <value>&lt;br&gt;Max Thumbnail Width is Required</value>
+  </data>
+  <data name="valThumbnailWidthIsNumber.ErrorMessage" xml:space="preserve">
+    <value>&lt;br&gt;Max Thumbnail Width must be a number</value>
+  </data>
+  <data name="ThumbnailHeight.Text" xml:space="preserve">
+    <value>Max Thumbnail Height</value>
+  </data>
+  <data name="ThumbnailHeight.Help" xml:space="preserve">
+    <value>The maximum height of your photo thumbnails.</value>
+  </data>
+  <data name="valThumbnailHeight.ErrorMessage" xml:space="preserve">
+    <value>&lt;br&gt;Max Thumbnail Height is Required</value>
+  </data>
+  <data name="valThumbnailHeightIsNumber.ErrorMessage" xml:space="preserve">
+    <value>&lt;br&gt;Max Thumbnail Height must be a number</value>
+  </data>
+  <data name="UseWatermark.Text" xml:space="preserve">
+    <value>Use Watermark?</value>
+  </data>
+  <data name="UseWatermark.Help" xml:space="preserve">
+    <value>Check to apply a watermark to uploaded images.</value>
+  </data>
+  <data name="WatermarkText.Text" xml:space="preserve">
+    <value>Watermark Text</value>
+  </data>
+  <data name="WatermarkText.Help" xml:space="preserve">
+    <value>Enter text for watermark.</value>
+  </data>
+  <data name="EnableSyndication.Text" xml:space="preserve">
+    <value>Enable Syndication?</value>
+  </data>
+  <data name="EnableSyndication.Help" xml:space="preserve">
+    <value>Check to allow syndication.</value>
+  </data>
+  <data name="EnableTooltip.Text" xml:space="preserve">
+    <value>Enable Tooltip?</value>
+  </data>
+  <data name="EnableTooltip.Help" xml:space="preserve">
+    <value>Check to allow a tooltip.</value>
+  </data>
+  <data name="AlbumsPerRow.Text" xml:space="preserve">
+    <value>Album's Per Row</value>
+  </data>
+  <data name="AlbumsPerRow.Help" xml:space="preserve">
+    <value>The number of albums per row.</value>
+  </data>
+  <data name="valAlbumsPerRow.ErrorMessage" xml:space="preserve">
+    <value>&lt;br&gt;Albums Per Row is Required</value>
+  </data>
+  <data name="valAlbumsPerRowIsNumber.ErrorMessage" xml:space="preserve">
+    <value>&lt;br&gt;Albums Per Row must be a number</value>
+  </data>
+  <data name="PhotosPerPage.Text" xml:space="preserve">
+    <value>Photo's Per Page</value>
+  </data>
+  <data name="PhotosPerPage.Help" xml:space="preserve">
+    <value>The number of photo's per page.</value>
+  </data>
+  <data name="valPhotosPerPage.ErrorMessage" xml:space="preserve">
+    <value>&lt;br&gt;Photo's Per Page is Required</value>
+  </data>
+  <data name="valPhotoPageSizeIsNumber.ErrorMessage" xml:space="preserve">
+    <value>&lt;br&gt;Photo's Per Page must be a number</value>
+  </data>
+  <data name="ThumbnailsPerRow.Text" xml:space="preserve">
+    <value>Photo's Per Row</value>
+  </data>
+  <data name="ThumbnailsPerRow.Help" xml:space="preserve">
+    <value>The number of thumbnails per row.</value>
+  </data>
+  <data name="valThumbnailsPerRow.ErrorMessage" xml:space="preserve">
+    <value>&lt;br&gt;Thumbnails Per Row is Required</value>
+  </data>
+  <data name="valThumbnailsPerRowIsNumber.ErrorMessage" xml:space="preserve">
+    <value>&lt;br&gt;Thumbnails Per Row must be a number</value>
+  </data>
+  <data name="SortBy.Text" xml:space="preserve">
+    <value>Sort By</value>
+  </data>
+  <data name="SortBy.Help" xml:space="preserve">
+    <value>Select how to sort photo's</value>
+  </data>
+  <data name="SortDirection.Text" xml:space="preserve">
+    <value>Sort Direction</value>
+  </data>
+  <data name="SortDirection.Help" xml:space="preserve">
+    <value>Select to sort photo's in ascending or descending order</value>
+  </data>
+  <data name="AllAlbums.Text" xml:space="preserve">
+    <value>-- Show All Albums --</value>
+  </data>
+  <data name="AlbumFilter.Text" xml:space="preserve">
+    <value>Album Filter</value>
+  </data>
+  <data name="AlbumFilter.Help" xml:space="preserve">
+    <value>Select to filter on a specified album</value>
+  </data>
+  <data name="BorderStyle.Text" xml:space="preserve">
+    <value>Border Style</value>
+  </data>
+  <data name="BorderStyle.Help" xml:space="preserve">
+    <value>Select a border style/theme</value>
+  </data>
+  <data name="Name.Text" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="DateCreated.Text" xml:space="preserve">
+    <value>Create Date</value>
+  </data>
+  <data name="DateApproved.Text" xml:space="preserve">
+    <value>Approved Date</value>
+  </data>
+  <data name="FileName.Text" xml:space="preserve">
+    <value>Filename</value>
+  </data>
+  <data name="ASC.Text" xml:space="preserve">
+    <value>Ascending</value>
+  </data>
+  <data name="DESC.Text" xml:space="preserve">
+    <value>Descending</value>
+  </data>
+  <data name="SlideshowType.Text" xml:space="preserve">
+    <value>Slideshow Mode</value>
+  </data>
+  <data name="SlideshowType.Help" xml:space="preserve">
+    <value>Select the appropriate slideshow.</value>
+  </data>
+  <data name="Lightbox.Text" xml:space="preserve">
+    <value>Lightbox</value>
+  </data>
+  <data name="Popup.Text" xml:space="preserve">
+    <value>Popup</value>
+  </data>
+  <data name="Standard.Text" xml:space="preserve">
+    <value>Standard</value>
+  </data>
+  <data name="UsePopup.Text" xml:space="preserve">
+    <value>Use Popup Window?</value>
+  </data>
+  <data name="UsePopup.Help" xml:space="preserve">
+    <value>Check to use a popup window for the slide show.</value>
+  </data>
+  <data name="PopupWidth.Text" xml:space="preserve">
+    <value>Popup Width</value>
+  </data>
+  <data name="PopupWidth.Help" xml:space="preserve">
+    <value>The width of the popup window.</value>
+  </data>
+  <data name="valPopupWidth.ErrorMessage" xml:space="preserve">
+    <value>&lt;br&gt;Popup Width is Required</value>
+  </data>
+  <data name="valPopupWidthIsNumber.ErrorMessage" xml:space="preserve">
+    <value>&lt;br&gt;Popup Width must be a number</value>
+  </data>
+  <data name="PopupHeight.Text" xml:space="preserve">
+    <value>Popup Height</value>
+  </data>
+  <data name="PopupHeight.Help" xml:space="preserve">
+    <value>The height of the popup window.</value>
+  </data>
+  <data name="valPopupHeight.ErrorMessage" xml:space="preserve">
+    <value>&lt;br&gt;Popup Height is Required</value>
+  </data>
+  <data name="valPopupHeightIsNumber.ErrorMessage" xml:space="preserve">
+    <value>&lt;br&gt;Popup Height must be a number</value>
+  </data>
+  <data name="EnableScrollbar.Text" xml:space="preserve">
+    <value>Enable Scrollbar?</value>
+  </data>
+  <data name="EnableScrollbar.Help" xml:space="preserve">
+    <value>Check to show a scrollbar on the popup slideshow.</value>
+  </data>
+  <data name="PhotoModeration.Text" xml:space="preserve">
+    <value>Photo Moderation</value>
+  </data>
+  <data name="PhotoModeration.Help" xml:space="preserve">
+    <value>Check to enable photos to require approval.</value>
+  </data>
+  <data name="PhotoPermissions.Text" xml:space="preserve">
+    <value>Photo Permissions</value>
+  </data>
+  <data name="PhotoPermissions.Help" xml:space="preserve">
+    <value>Specify roles that are allowed to manipulate photos.</value>
+  </data>
+  <data name="Upload.Text" xml:space="preserve">
+    <value>Upload</value>
+  </data>
+  <data name="Edit.Text" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Delete.Text" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Approve.Text" xml:space="preserve">
+    <value>Approve</value>
+  </data>
+  <data name="TagSettings.Text" xml:space="preserve">
+    <value>Tag Settings</value>
+  </data>
+  <data name="EnableTags.Text" xml:space="preserve">
+    <value>Enable Tags?</value>
+  </data>
+  <data name="EnableTags.Help" xml:space="preserve">
+    <value>Check to enable tags.</value>
+  </data>
+  <data name="TagCount.Text" xml:space="preserve">
+    <value>Tag Count</value>
+  </data>
+  <data name="TagCount.Help" xml:space="preserve">
+    <value>Specify the number of tags to show in the tag cloud.</value>
+  </data>
+  <data name="valTagCount.ErrorMessage" xml:space="preserve">
+    <value>&lt;br&gt;Tag Count is Required</value>
+  </data>
+  <data name="valTagCountIsNumber.ErrorMessage" xml:space="preserve">
+    <value>&lt;br&gt;Tag Count must be a number</value>
+  </data>
+  <data name="ModuleHelp.Text" xml:space="preserve">
+    <value>&lt;h1&gt;Simple Gallery View Options&lt;/h1&gt;&lt;p&gt;This module allows you to customize the Simple Gallery module.&lt;/p&gt;</value>
+  </data>
+  <data name="ControlTitle_settings.Text" xml:space="preserve">
+    <value>Gallery Settings</value>
+  </data>
+  <data name="ResizeAlbumInstructions.Text" xml:space="preserve">
+    <value>For album thumbnails:-</value>
+  </data>
+  <data name="ResizeInstructions.Text" xml:space="preserve">
+    <value>Upon upload, I want to:-</value>
+  </data>
+  <data name="ResizePhotoInstructions.Text" xml:space="preserve">
+    <value>For photo thumbnails:-</value>
+  </data>
+  <data name="UploaderFileSize.Help" xml:space="preserve">
+    <value>Specify a maximum file size for uploaded images (in kb).</value>
+  </data>
+  <data name="UploaderFileSize.Text" xml:space="preserve">
+    <value>Maximum File Size</value>
+  </data>
+  <data name="UploaderSettings.Text" xml:space="preserve">
+    <value>Uploader Settings</value>
+  </data>
+  <data name="valUploaderFileSize.ErrorMessage" xml:space="preserve">
+    <value>&lt;br&gt;Maximum file size is required.</value>
+  </data>
+  <data name="valUploaderFileSizeIsNumber.ErrorMessage" xml:space="preserve">
+    <value>&lt;br&gt;Maximum file size must be a number.</value>
+  </data>
+  <data name="CloseKey.Help" xml:space="preserve">
+    <value>Enter the key for the close action in lightbox.</value>
+  </data>
+  <data name="CloseKey.Text" xml:space="preserve">
+    <value>Close Key</value>
+  </data>
+  <data name="NextKey.Help" xml:space="preserve">
+    <value>Enter the key for the next action in lightbox.</value>
+  </data>
+  <data name="NextKey.Text" xml:space="preserve">
+    <value>Next Key</value>
+  </data>
+  <data name="PreviousKey.Help" xml:space="preserve">
+    <value>Enter the key for the previous action in lightbox.</value>
+  </data>
+  <data name="PreviousKey.Text" xml:space="preserve">
+    <value>Previous Key</value>
+  </data>
+  <data name="valCloseKey.ErrorMessage" xml:space="preserve">
+    <value>&lt;br&gt;Close key is required.</value>
+  </data>
+  <data name="valNextKey.ErrorMessage" xml:space="preserve">
+    <value>&lt;br&gt;Next key is required.</value>
+  </data>
+  <data name="valPreviousKey.ErrorMessage" xml:space="preserve">
+    <value>&lt;br&gt;Previous key is required.</value>
+  </data>
+  <data name="AlbumSortBy.Help" xml:space="preserve">
+    <value>Select how to sort albums</value>
+  </data>
+  <data name="AlbumSortBy.Text" xml:space="preserve">
+    <value>Album Sort By</value>
+  </data>
+  <data name="AlbumSortDirection.Help" xml:space="preserve">
+    <value>Select to sort albums in ascending or descending order</value>
+  </data>
+  <data name="AlbumSortDirection.Text" xml:space="preserve">
+    <value>Album Sort Direction</value>
+  </data>
+  <data name="Caption.Text" xml:space="preserve">
+    <value>Caption</value>
+  </data>
+  <data name="CreateDate.Text" xml:space="preserve">
+    <value>Create Date</value>
+  </data>
+  <data name="Custom.Text" xml:space="preserve">
+    <value>Custom</value>
+  </data>
+  <data name="HidePager.Help" xml:space="preserve">
+    <value>Check to hide pager when viewing albums.</value>
+  </data>
+  <data name="HidePager.Text" xml:space="preserve">
+    <value>Hide Pager?</value>
+  </data>
+  <data name="SlideInterval.Help" xml:space="preserve">
+    <value>Enter the number of seconds between slides in play mode.</value>
+  </data>
+  <data name="SlideInterval.Text" xml:space="preserve">
+    <value>Slide Interval</value>
+  </data>
+  <data name="valSlideInterval.ErrorMessage" xml:space="preserve">
+    <value>&lt;br&gt;Slide Interval is Required.</value>
+  </data>
+  <data name="valSlideIntervalIsNumber.ErrorMessage" xml:space="preserve">
+    <value>&lt;br&gt;Slide Interval must be a number</value>
+  </data>
+  <data name="BottomLeft.Text" xml:space="preserve">
+    <value>Bottom Left</value>
+  </data>
+  <data name="BottomRight.Text" xml:space="preserve">
+    <value>Bottom Right</value>
+  </data>
+  <data name="TopLeft.Text" xml:space="preserve">
+    <value>Top Left</value>
+  </data>
+  <data name="TopRight.Text" xml:space="preserve">
+    <value>Top Right</value>
+  </data>
+  <data name="WatermarkImage.Help" xml:space="preserve">
+    <value>Select a watermark image to apply.</value>
+  </data>
+  <data name="WatermarkImage.Text" xml:space="preserve">
+    <value>Watermark Image</value>
+  </data>
+  <data name="WatermarkPosition.Help" xml:space="preserve">
+    <value>Set the position of the watermark image.</value>
+  </data>
+  <data name="WatermarkPosition.Text" xml:space="preserve">
+    <value>Watermark Image Position</value>
+  </data>
+  <data name="Random.Text" xml:space="preserve">
+    <value>Random</value>
+  </data>
+  <data name="UseXmpExif.Help" xml:space="preserve">
+    <value>Check to use XMP/EXIF data to populate title, description and tags.</value>
+  </data>
+  <data name="UseXmpExif.Text" xml:space="preserve">
+    <value>Use XMP/EXIF?</value>
+  </data>
+  <data name="EnableSearch.Help" xml:space="preserve">
+    <value>Check to enable search.</value>
+  </data>
+  <data name="EnableSearch.Text" xml:space="preserve">
+    <value>Enable Search?</value>
+  </data>
+  <data name="plSlideHideDescription.Help" xml:space="preserve">
+    <value>Check to hide the description in the lightbox slideshow.</value>
+  </data>
+  <data name="plSlideHideDescription.Text" xml:space="preserve">
+    <value>Hide Description</value>
+  </data>
+  <data name="plSlideHideTitle.Help" xml:space="preserve">
+    <value>Check to hide the title in the lightbox slideshow.</value>
+  </data>
+  <data name="plSlideHideTitle.Text" xml:space="preserve">
+    <value>Hide Title</value>
+  </data>
+  <data name="plSlideHidePaging.Help" xml:space="preserve">
+    <value>Check to hide paging in the lightbox slideshow.</value>
+  </data>
+  <data name="plSlideHidePaging.Text" xml:space="preserve">
+    <value>Hide Paging</value>
+  </data>
+  <data name="plSlideHideTags.Help" xml:space="preserve">
+    <value>Check to hide tags in the lightbox slideshow.</value>
+  </data>
+  <data name="plSlideHideTags.Text" xml:space="preserve">
+    <value>Hide Tags</value>
+  </data>
+  <data name="plIncludeJQuery.Help" xml:space="preserve">
+    <value>Check to include the jquery script.</value>
+  </data>
+  <data name="plIncludeJQuery.Text" xml:space="preserve">
+    <value>Include JQuery?</value>
+  </data>
+  <data name="plRequireTags.Help" xml:space="preserve">
+    <value>Check to require tags for all photos.</value>
+  </data>
+  <data name="plRequireTags.Text" xml:space="preserve">
+    <value>Require Tags?</value>
+  </data>
+  <data name="Proportion.Text" xml:space="preserve">
+    <value>Proportion</value>
+  </data>
+  <data name="Square.Text" xml:space="preserve">
+    <value>Square (cropped)</value>
+  </data>
+  <data name="ThumbnailTypeAlbum.Help" xml:space="preserve">
+    <value>Specify a thumbnail type.</value>
+  </data>
+  <data name="ThumbnailTypeAlbum.Text" xml:space="preserve">
+    <value>Thumbnail Type</value>
+  </data>
+  <data name="ThumbnailTypePhoto.Help" xml:space="preserve">
+    <value>Specify a thumbnail type.</value>
+  </data>
+  <data name="ThumbnailTypePhoto.Text" xml:space="preserve">
+    <value>Thumbnail Type</value>
+  </data>
+  <data name="AlbumThumbnailSquare.Help" xml:space="preserve">
+    <value>The square size of the thumbnail.</value>
+  </data>
+  <data name="AlbumThumbnailSquare.Text" xml:space="preserve">
+    <value>Thumbnail Size</value>
+  </data>
+  <data name="ThumbnailSquare.Help" xml:space="preserve">
+    <value>The square size of the thumbnail.</value>
+  </data>
+  <data name="ThumbnailSquare.Text" xml:space="preserve">
+    <value>Thumbnail Size</value>
+  </data>
+  <data name="HideBreadCrumbs.Help" xml:space="preserve">
+    <value>Check to hide breadcrumbs.</value>
+  </data>
+  <data name="HideBreadCrumbs.Text" xml:space="preserve">
+    <value>Hide BreadCrumbs?</value>
+  </data>
+  <data name="plSlideHideDownload.Help" xml:space="preserve">
+    <value>Check to hide the download link in the lightbox slideshow.</value>
+  </data>
+  <data name="plSlideHideDownload.Text" xml:space="preserve">
+    <value>Hide Download</value>
+  </data>
+  <data name="DownloadKey.Help" xml:space="preserve">
+    <value>Enter the key for the download action in lightbox.</value>
+  </data>
+  <data name="DownloadKey.Text" xml:space="preserve">
+    <value>Download Key</value>
+  </data>
+  <data name="valDownloadKey.ErrorMessage" xml:space="preserve">
+    <value>&lt;br&gt;Download key is required.</value>
+  </data>
+  <data name="StandardWidth.Help" xml:space="preserve">
+    <value>The width of the standard slideshow</value>
+  </data>
+  <data name="StandardWidth.Text" xml:space="preserve">
+    <value>Standard Width</value>
+  </data>
+  <data name="valStandardWidth.ErrorMessage" xml:space="preserve">
+    <value>&lt;br&gt;Standard Width is Required</value>
+  </data>
+  <data name="valStandardWidthIsNumber.ErrorMessage" xml:space="preserve">
+    <value>&lt;br&gt;Standard Width must be a number</value>
+  </data>
+  <data name="EnableZip.Help" xml:space="preserve">
+    <value>Check to enable zipping of albums.</value>
+  </data>
+  <data name="EnableZip.Text" xml:space="preserve">
+    <value>Enable Zip?</value>
+  </data>
+  <data name="IncludeSubFolders.Help" xml:space="preserve">
+    <value>Check to include sub albums in the zip files.</value>
+  </data>
+  <data name="IncludeSubFolders.Text" xml:space="preserve">
+    <value>Include Sub Albums</value>
+  </data>
+  <data name="ZipSettings.Text" xml:space="preserve">
+    <value>Zip Settings</value>
+  </data>
+  <data name="Album.Text" xml:space="preserve">
+    <value>Album</value>
+  </data>
+  <data name="plIncludeViewCart.Help" xml:space="preserve">
+    <value>Check to include the view cart template in the bottom right. </value>
+  </data>
+  <data name="plIncludeViewCart.Text" xml:space="preserve">
+    <value>Include View Cart?</value>
+  </data>
+  <data name="plUseAlbumAnchors.Help" xml:space="preserve">
+    <value>Check to use anchor regions when navigating between albums.</value>
+  </data>
+  <data name="plUseAlbumAnchors.Text" xml:space="preserve">
+    <value>Use Album Anchors</value>
+  </data>
+  <data name="AlbumDefaultPath.Help" xml:space="preserve">
+    <value>Specify a default album path for new albums. </value>
+  </data>
+  <data name="AlbumDefaultPath.Text" xml:space="preserve">
+    <value>Default Album Path</value>
+  </data>
+  <data name="LightboxDefaultPath.Help" xml:space="preserve">
+    <value>Specify the default lightbox path. </value>
+  </data>
+  <data name="LightboxDefaultPath.Text" xml:space="preserve">
+    <value>Default Lightbox Path</value>
+  </data>
+</root>
