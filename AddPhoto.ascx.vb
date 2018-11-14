@@ -124,15 +124,11 @@ Namespace Ventrian.SimpleGallery
                         Dim objRole As RoleInfo = objRoleController.GetRoleByName(Me.PortalId, role)
 
                         If Not (objRole Is Nothing) Then
-                            Dim objUsers As ArrayList = objRoleController.GetUserRolesByRoleName(Me.PortalId, objRole.RoleName)
-                            For Each objUser As UserRoleInfo In objUsers
+                            Dim objUsers As IList(Of UserInfo) = RoleController.Instance.GetUsersByRole(Me.PortalId, objRole.RoleName)
+                            For Each objUser As UserInfo In objUsers
                                 If (userList.Contains(objUser.UserID) = False) Then
-                                    Dim objUserController As UserController = New UserController
-                                    Dim objSelectedUser As UserInfo = objUserController.GetUser(Me.PortalId, objUser.UserID)
-                                    If Not (objSelectedUser Is Nothing) Then
-                                        If (objSelectedUser.Membership.Email.Length > 0) Then
-                                            userList.Add(objUser.UserID, objSelectedUser.Membership.Email)
-                                        End If
+                                    If (objUser.Email.Length > 0) Then
+                                        userList.Add(objUser.UserID, objUser.Email)
                                     End If
                                 End If
                             Next
@@ -200,19 +196,6 @@ Namespace Ventrian.SimpleGallery
             Try
 
                 If (HttpContext.Current.Items("SimpleGallery-ScriptsRegistered") Is Nothing) Then
-
-                    If (HttpContext.Current.Items("jquery_registered") Is Nothing And HttpContext.Current.Items("jQueryRequested") Is Nothing And GallerySettings.IncludeJQuery) Then
-
-                        Dim version As Integer = Convert.ToInt32(PortalSettings.Version.Split("."c)(0))
-                        If (version < 6) Then
-
-                            Dim litLink As New Literal
-                            litLink.Text = "" & vbCrLf _
-                                & "<script type=""text/javascript"" src='" & Me.ResolveUrl("js/lightbox/jquery.js?v=" & GallerySettings.JavascriptVersion) & "'></script>"
-                            Page.Header.Controls.Add(litLink)
-                        End If
-
-                    End If
 
                     HttpContext.Current.Items.Add("SimpleGallery-ScriptsRegistered", "true")
 

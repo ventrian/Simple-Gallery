@@ -160,10 +160,7 @@ Namespace Ventrian.SimpleGallery
                     _userID = objUser.UserID
                     HttpContext.Current.Items("UserInfo") = objUser
 
-                    Dim objRoleController As New RoleController
-                    roles = objRoleController.GetRolesByUser(_userID, _portalID)
-
-                    Dim strPortalRoles As String = Join(roles, New Char() {";"c})
+                    Dim strPortalRoles As String = Join(objUser.Roles, New Char() {";"c})
                     Context.Items.Add("UserRoles", ";" + strPortalRoles + ";")
                 End If
 
@@ -209,15 +206,11 @@ Namespace Ventrian.SimpleGallery
                         Dim objRole As RoleInfo = objRoleController.GetRoleByName(_portalID, role)
 
                         If Not (objRole Is Nothing) Then
-                            Dim objUsers As ArrayList = objRoleController.GetUserRolesByRoleName(_portalID, objRole.RoleName)
-                            For Each objUser As UserRoleInfo In objUsers
+                            Dim objUsers As IList(Of UserInfo) = RoleController.Instance.GetUsersByRole(_portalID, objRole.RoleName)
+                            For Each objUser As UserInfo In objUsers
                                 If (userList.Contains(objUser.UserID) = False) Then
-                                    Dim objUserController As UserController = New UserController
-                                    Dim objSelectedUser As UserInfo = objUserController.GetUser(_portalID, objUser.UserID)
-                                    If Not (objSelectedUser Is Nothing) Then
-                                        If (objSelectedUser.Membership.Email.Length > 0) Then
-                                            userList.Add(objUser.UserID, objSelectedUser.Membership.Email)
-                                        End If
+                                    If (objUser.Email.Length > 0) Then
+                                        userList.Add(objUser.UserID, objUser.Email)
                                     End If
                                 End If
                             Next
@@ -306,7 +299,7 @@ Namespace Ventrian.SimpleGallery
                 Return True
             End If
 
-            If (IsInRoles(ModuleConfiguration.AuthorizedEditRoles) Or IsInRoles(Tab.AdministratorRoles) Or IsInRoles(Portal.AdministratorRoleName)) Then
+            If ModulePermissionController.CanEditModuleContent(ModuleConfiguration) Then
                 Return True
             End If
 
@@ -340,10 +333,7 @@ Namespace Ventrian.SimpleGallery
 
         Public Function HasEditPermissions() As Boolean
 
-            Return _
-                (PortalSecurity.IsInRoles(ModuleConfiguration.AuthorizedEditRoles) = True) Or _
-                (PortalSecurity.IsInRoles(Tab.AdministratorRoles) = True) Or _
-                (PortalSecurity.IsInRoles(Portal.AdministratorRoleName) = True)
+            Return ModulePermissionController.CanEditModuleContent(ModuleConfiguration)
 
         End Function
 
@@ -363,13 +353,12 @@ Namespace Ventrian.SimpleGallery
 
         Private Function IsInRole(ByVal role As String) As Boolean
 
-            Dim objUserInfo As UserInfo = UserController.GetCurrentUserInfo
-            Dim context As HttpContext = HttpContext.Current
+            Dim _context As HttpContext = HttpContext.Current
 
-            If (role <> "" AndAlso Not role Is Nothing AndAlso ((context.Request.IsAuthenticated = False And role = glbRoleUnauthUserName))) Then
+            If (role <> "" AndAlso Not role Is Nothing AndAlso ((_context.Request.IsAuthenticated = False And role = glbRoleUnauthUserName))) Then
                 Return True
             Else
-                Dim roles As String = CType(context.Items("UserRoles"), String)
+                Dim roles As String = CType(_context.Items("UserRoles"), String)
                 If Not roles Is Nothing Then
                     Dim rolesArr As String() = roles.Split(";"c)
                     For Each strRole As String In rolesArr
@@ -386,8 +375,7 @@ Namespace Ventrian.SimpleGallery
         Private Function IsInRoles(ByVal roles As String) As Boolean
 
             If Not roles Is Nothing Then
-                Dim context As HttpContext = HttpContext.Current
-                Dim objUserInfo As UserInfo = UserController.GetCurrentUserInfo
+                Dim objUserInfo As UserInfo = UserController.Instance.GetCurrentUserInfo()
                 Dim role As String
 
                 For Each role In roles.Split(New Char() {";"c})
@@ -731,7 +719,7 @@ Namespace Ventrian.SimpleGallery
 
                         ' Update DNN File Meta Info
                         Dim strFileName As String = Path.GetFileName(filePath & fileName)
-                        Dim strFolderpath As String = GetSubFolderPath(filePath & fileName)
+                        Dim strFolderpath As String = GetSubFolderPath(filePath & fileName, _portalID)
                         Dim finfo As New System.IO.FileInfo(filePath & fileName)
 
                         Dim strContentType As String = ""
@@ -745,13 +733,11 @@ Namespace Ventrian.SimpleGallery
                         End Select
 
                         Dim folderID As Integer = Null.NullInteger
-                        Dim objFolderController As New FolderController
-                        Dim folder As FolderInfo = objFolderController.GetFolder(_portalID, strFolderpath, False)
+                        Dim folder As FolderInfo = FolderManager.Instance.GetFolder(_portalID, strFolderpath)
                         If (folder Is Nothing) Then
-                            folderID = objFolderController.AddFolder(_portalID, strFolderpath)
-                        Else
-                            folderID = folder.FolderID
+                            folder = FolderManager.Instance.AddFolder(_portalID, strFolderpath)
                         End If
+                        folderID = folder.FolderID
 
                         'Dim parentFolderPath As String = strFolderpath.Substring(0, strFolderpath.Substring(0, strFolderpath.Length - 1).LastIndexOf("/") + 1)
 

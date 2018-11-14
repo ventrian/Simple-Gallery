@@ -523,26 +523,10 @@ Namespace Ventrian.SimpleGallery
 
                         If (HttpContext.Current.Items("jquery_registered") Is Nothing And HttpContext.Current.Items("jQueryRequested") Is Nothing And GallerySettings.RandomIncludeJQuery) Then
 
-                            Dim version As Integer = Convert.ToInt32(PortalSettings.Version.Split("."c)(0))
-                            If (version >= 6) Then
-
-                                Dim litLink As New Literal
-                                litLink.Text = "" & vbCrLf _
-                                    & "<script type=""text/javascript"" src='" & Page.ResolveUrl(GallerySettings.LightboxDefaultPath & "?v=" & GallerySettings.JavascriptVersion) & "'></script>" & vbCrLf
-                                phjQueryScripts.Controls.Add(litLink)
-                            Else
-
-
-                                Dim jLink As New Literal
-                                jLink.Text = "" & vbCrLf _
-                                    & "<script type=""text/javascript"" src='" & Me.ResolveUrl("../simplegallery/js/lightbox/jquery.js?v=" & Me.GallerySettings.JavascriptVersion) & "'></script>" & vbCrLf
-                                Page.Header.Controls.Add(jLink)
-
-                                Dim litLink As New Literal
-                                litLink.Text = "" & vbCrLf _
-                                    & "<script type=""text/javascript"" src='" & Page.ResolveUrl(GallerySettings.LightboxDefaultPath & "?v=" & GallerySettings.JavascriptVersion) & "'></script>" & vbCrLf
-                                phjQueryScripts.Controls.Add(litLink)
-                            End If
+                            Dim litLink As New Literal
+                            litLink.Text = "" & vbCrLf _
+                                & "<script type=""text/javascript"" src='" & Page.ResolveUrl(GallerySettings.LightboxDefaultPath & "?v=" & GallerySettings.JavascriptVersion) & "'></script>" & vbCrLf
+                            phjQueryScripts.Controls.Add(litLink)
 
                         Else
 

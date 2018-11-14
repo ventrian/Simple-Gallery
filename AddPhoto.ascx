@@ -74,7 +74,8 @@
 <script type="text/javascript" src='<%= ResolveUrl("JS/SWFUpload/handlers.2.2.0.js") %>'></script>
 <script type="text/javascript">
 
-    jQuery(document).ready(function() {        LoadUploader();
+    jQuery(document).ready(function() {
+        LoadUploader();
     });
     
 	var swfu;

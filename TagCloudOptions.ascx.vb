@@ -4,11 +4,13 @@
 ' by Ventrian ( sales@ventrian.com ) ( http://www.ventrian.com )
 '
 
+Imports System.Linq
 Imports DotNetNuke.Common
 Imports DotNetNuke.Common.Utilities
 Imports DotNetNuke.Entities.Modules
 Imports DotNetNuke.Entities.Tabs
 Imports DotNetNuke.Security
+Imports DotNetNuke.Security.Permissions
 Imports DotNetNuke.Services.Localization
 Imports DotNetNuke.Services.Exceptions
 
@@ -39,44 +41,37 @@ Namespace Ventrian.SimpleGallery
 
         Private Sub BindModules()
 
-            Dim objDesktopModuleController As New DesktopModuleController
-            Dim objDesktopModuleInfo As DesktopModuleInfo = objDesktopModuleController.GetDesktopModuleByModuleName("SimpleGallery")
+            Dim objDesktopModuleInfo As DesktopModuleInfo = DesktopModuleController.GetDesktopModuleByModuleName("SimpleGallery", PortalId)
 
             If Not (objDesktopModuleInfo Is Nothing) Then
 
                 Dim objTabController As New TabController()
-                Dim objTabs As ArrayList = objTabController.GetTabs(PortalId)
-                For Each objTab As DotNetNuke.Entities.Tabs.TabInfo In objTabs
-                    If Not (objTab Is Nothing) Then
-                        If (objTab.IsDeleted = False) Then
-                            Dim objModules As New ModuleController
-                            For Each pair As KeyValuePair(Of Integer, ModuleInfo) In objModules.GetTabModules(objTab.TabID)
-                                Dim objModule As ModuleInfo = pair.Value
-                                If (objModule.IsDeleted = False) Then
-                                    If (objModule.DesktopModuleID = objDesktopModuleInfo.DesktopModuleID) Then
-                                        If PortalSecurity.IsInRoles(objModule.AuthorizedEditRoles) = True And objModule.IsDeleted = False Then
-                                            Dim strPath As String = objTab.TabName
-                                            Dim objTabSelected As TabInfo = objTab
-                                            While objTabSelected.ParentId <> Null.NullInteger
-                                                objTabSelected = objTabController.GetTab(objTabSelected.ParentId, objTab.PortalID, False)
-                                                If (objTabSelected Is Nothing) Then
-                                                    Exit While
-                                                End If
-                                                strPath = objTabSelected.TabName & " -> " & strPath
-                                            End While
-
-                                            Dim objListItem As New ListItem
-
-                                            objListItem.Value = objModule.TabID.ToString() & "-" & objModule.ModuleID.ToString()
-                                            objListItem.Text = strPath & " -> " & objModule.ModuleTitle
-
-                                            drpModuleID.Items.Add(objListItem)
-                                        End If
+                Dim objTabs As TabCollection = objTabController.GetTabsByPortal(PortalId)
+                For Each objTab As TabInfo In objTabs.Values.Where(function(info) info.IsDeleted = False)
+                    Dim objModules As New ModuleController
+                    For Each pair As KeyValuePair(Of Integer, ModuleInfo) In objModules.GetTabModules(objTab.TabID).Where(function(info) info.Value.IsDeleted = False)
+                        Dim objModule As ModuleInfo = pair.Value
+                        If (objModule.DesktopModuleID = objDesktopModuleInfo.DesktopModuleID) Then
+                            If ModulePermissionController.CanEditModuleContent(objModule) = True And objModule.IsDeleted = False Then
+                                Dim strPath As String = objTab.TabName
+                                Dim objTabSelected As TabInfo = objTab
+                                While objTabSelected.ParentId <> Null.NullInteger
+                                    objTabSelected = objTabController.GetTab(objTabSelected.ParentId, objTab.PortalID, False)
+                                    If (objTabSelected Is Nothing) Then
+                                        Exit While
                                     End If
-                                End If
-                            Next
+                                    strPath = objTabSelected.TabName & " -> " & strPath
+                                End While
+
+                                Dim objListItem As New ListItem
+
+                                objListItem.Value = objModule.TabID.ToString() & "-" & objModule.ModuleID.ToString()
+                                objListItem.Text = strPath & " -> " & objModule.ModuleTitle
+
+                                drpModuleID.Items.Add(objListItem)
+                            End If
                         End If
-                    End If
+                    Next
                 Next
 
             End If

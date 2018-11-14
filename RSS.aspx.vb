@@ -323,7 +323,7 @@ Namespace Ventrian.SimpleGallery
                     Next
 
                     writer.WriteStartElement("enclosure")
-                    writer.WriteAttributeString("url", "http://" & System.Web.HttpContext.Current.Request.Url.Host & PortalController.GetCurrentPortalSettings().HomeDirectory & objPhoto.HomeDirectory & "/" & objPhoto.FileName)
+                    writer.WriteAttributeString("url", "http://" & System.Web.HttpContext.Current.Request.Url.Host & PortalSettings.Current.HomeDirectory & objPhoto.HomeDirectory & "/" & objPhoto.FileName)
                     writer.WriteAttributeString("type", "image/jpg")
                     writer.WriteEndElement()
 
