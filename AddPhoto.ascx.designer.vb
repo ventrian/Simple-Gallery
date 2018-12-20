@@ -213,49 +213,40 @@ Namespace Ventrian.SimpleGallery
         Protected WithEvents pnlStep2 As Global.System.Web.UI.WebControls.Panel
         
         '''<summary>
-        '''phjQueryScripts control.
-        '''</summary>
-        '''<remarks>
-        '''Auto-generated field.
-        '''To modify move field declaration from designer file to code-behind file.
-        '''</remarks>
-        Protected WithEvents phjQueryScripts As Global.System.Web.UI.WebControls.PlaceHolder
-        
-        '''<summary>
-        '''litModuleID control.
-        '''</summary>
-        '''<remarks>
-        '''Auto-generated field.
-        '''To modify move field declaration from designer file to code-behind file.
-        '''</remarks>
-        Protected WithEvents litModuleID As Global.System.Web.UI.WebControls.Literal
-        
-        '''<summary>
         '''litBatchID control.
         '''</summary>
         '''<remarks>
         '''Auto-generated field.
         '''To modify move field declaration from designer file to code-behind file.
         '''</remarks>
-        Protected WithEvents litBatchID As Global.System.Web.UI.WebControls.Literal
+        Protected WithEvents litBatchID As Global.System.Web.UI.WebControls.HiddenField
         
         '''<summary>
-        '''litTicketID control.
+        '''fupFile control.
         '''</summary>
         '''<remarks>
         '''Auto-generated field.
         '''To modify move field declaration from designer file to code-behind file.
         '''</remarks>
-        Protected WithEvents litTicketID As Global.System.Web.UI.WebControls.Literal
+        Protected WithEvents fupFile As Global.System.Web.UI.WebControls.FileUpload
         
         '''<summary>
-        '''lblSelectImages control.
+        '''btnUploadFiles control.
         '''</summary>
         '''<remarks>
         '''Auto-generated field.
         '''To modify move field declaration from designer file to code-behind file.
         '''</remarks>
-        Protected WithEvents lblSelectImages As Global.System.Web.UI.WebControls.Label
+        Protected WithEvents btnUploadFiles As Global.System.Web.UI.WebControls.Button
+        
+        '''<summary>
+        '''addedPhotosRepeater control.
+        '''</summary>
+        '''<remarks>
+        '''Auto-generated field.
+        '''To modify move field declaration from designer file to code-behind file.
+        '''</remarks>
+        Protected WithEvents addedPhotosRepeater As Global.System.Web.UI.WebControls.Repeater
         
         '''<summary>
         '''ucEditPhotos control.

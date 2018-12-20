@@ -362,13 +362,6 @@
       <DependentUpon>Tags.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Uploader.aspx.designer.vb">
-      <DependentUpon>Uploader.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Uploader.aspx.vb">
-      <DependentUpon>Uploader.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="ViewGallery.ascx.designer.vb">
       <DependentUpon>ViewGallery.ascx</DependentUpon>
     </Compile>
@@ -593,8 +586,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\gallery.png" />
-    <Content Include="JS\SWFUpload\swfupload.2.2.0.js" />
-    <Content Include="JS\SWFUpload\swfupload.2.2.0.swf" />
     <Content Include="SearchBox.ascx" />
     <Content Include="ViewSearch.ascx" />
     <Content Include="ImageHandler.ashx" />
@@ -603,7 +594,6 @@
     <Content Include="Images\SWFUpload\uploadlimit.gif" />
     <Content Include="Images\SWFUpload\XPButtonNoText_160x22.png" />
     <Content Include="Images\SWFUpload\zerobyte.gif" />
-    <Content Include="JS\SWFUpload\handlers.2.2.0.js" />
     <Content Include="module.css" />
     <Content Include="RandomPhoto.ascx" />
     <Content Include="RandomPhotoOptions.ascx" />
@@ -616,7 +606,6 @@
     <Content Include="TagCloud.ascx" />
     <Content Include="TagCloudOptions.ascx" />
     <Content Include="Tags.ascx" />
-    <Content Include="Uploader.aspx" />
     <Content Include="ViewGallery.ascx" />
     <Content Include="ViewOptions.ascx" />
     <Content Include="ViewTag.ascx" />
@@ -624,7 +613,6 @@
     <Content Include="DownloadPhoto.ashx" />
     <Content Include="AddToCart.ashx" />
     <Content Include="ViewCart.ashx" />
-    <None Include="SimpleGallery.dnn5" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -634,9 +622,9 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-    <None Include="SimpleGallery.dnn" />
     <Content Include="web.config" />
     <Content Include="ZipAlbum.ascx" />
+    <None Include="SimpleGallery.dnn" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
