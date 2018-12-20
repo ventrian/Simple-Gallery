@@ -8,6 +8,7 @@ Imports System.IO
 
 Imports DotNetNuke.Common
 Imports DotNetNuke.Common.Utilities
+Imports DotNetNuke.Entities.Host
 Imports DotNetNuke.Entities.Modules
 Imports DotNetNuke.Entities.Modules.Actions
 Imports DotNetNuke.Entities.Tabs
@@ -135,7 +136,7 @@ Namespace Ventrian.SimpleGallery
                     Else
                         objCSSCache(ID) = ""
                     End If
-                    If Not DotNetNuke.Common.Globals.PerformanceSetting = DotNetNuke.Common.Globals.PerformanceSettings.NoCaching Then
+                    If Not Host.PerformanceSetting = PerformanceSettings.NoCaching Then
                         DataCache.SetCache("CSS", objCSSCache)
                     End If
                 End If
@@ -156,7 +157,7 @@ Namespace Ventrian.SimpleGallery
                     Else
                         objCSSCache(ID) = ""
                     End If
-                    If Not DotNetNuke.Common.Globals.PerformanceSetting = DotNetNuke.Common.Globals.PerformanceSettings.NoCaching Then
+                    If Not Host.PerformanceSetting = PerformanceSettings.NoCaching Then
                         DataCache.SetCache("CSS", objCSSCache)
                     End If
                 End If

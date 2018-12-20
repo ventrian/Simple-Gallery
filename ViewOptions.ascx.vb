@@ -237,7 +237,7 @@ Namespace Ventrian.SimpleGallery
             ' Security Settings
             chkPhotoModeration.Checked = Me.GallerySettings.PhotoModeration
             Dim objRoleController As New RoleController
-            dgPhotoPermissions.DataSource = objRoleController.GetPortalRoles(PortalController.GetCurrentPortalSettings.PortalId)
+            dgPhotoPermissions.DataSource = objRoleController.GetPortalRoles(PortalSettings.Current.PortalId)
             dgPhotoPermissions.DataBind()
             dgPhotoPermissions.Columns(4).Visible = Me.GallerySettings.PhotoModeration
 

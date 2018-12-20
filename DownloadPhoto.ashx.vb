@@ -58,7 +58,7 @@ Namespace Ventrian.SimpleGallery
                     If (objPhoto IsNot Nothing) Then
 
 
-                        Dim filePath As String = context.Server.MapPath(PortalController.GetCurrentPortalSettings().HomeDirectory & objPhoto.HomeDirectory & "/" & objPhoto.FileName)
+                        Dim filePath As String = context.Server.MapPath(PortalSettings.Current.HomeDirectory & objPhoto.HomeDirectory & "/" & objPhoto.FileName)
                         Dim fileInfo As System.IO.FileInfo = New System.IO.FileInfo(filePath)
                         context.Response.Clear()
                         context.Response.AddHeader("Content-Disposition", "attachment;filename=" + context.Server.UrlEncode(fileInfo.Name))

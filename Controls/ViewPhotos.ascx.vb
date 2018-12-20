@@ -582,14 +582,6 @@ Namespace Ventrian.SimpleGallery.Controls
 
                         If (HttpContext.Current.Items("jquery_registered") Is Nothing And HttpContext.Current.Items("jQueryRequested") Is Nothing And SimpleGalleryBase.GallerySettings.IncludeJQuery) Then
 
-                            Dim version As Integer = Convert.ToInt32(SimpleGalleryBase.PortalSettings.Version.Split("."c)(0))
-                            If (version < 6) Then
-                                Dim jLink As New Literal
-                                jLink.Text = "" & vbCrLf _
-                                    & "<script type=""text/javascript"" src='" & Me.ResolveUrl("../js/lightbox/jquery.js?v=" & SimpleGalleryBase.GallerySettings.JavascriptVersion) & "'></script>" & vbCrLf
-                                Page.Header.Controls.Add(jLink)
-                            End If
-
                             Dim litLink As New Literal
                             litLink.Text = "" & vbCrLf _
                                 & "<script type=""text/javascript"" src='" & Page.ResolveUrl(SimpleGalleryBase.GallerySettings.LightboxDefaultPath & "?v=" & SimpleGalleryBase.GallerySettings.JavascriptVersion) & "'></script>" & vbCrLf

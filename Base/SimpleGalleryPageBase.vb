@@ -30,7 +30,7 @@ Namespace Ventrian.SimpleGallery
 
         Public ReadOnly Property PortalSettings() As PortalSettings
             Get
-                Return PortalController.GetCurrentPortalSettings()
+                Return PortalSettings.Current
             End Get
         End Property
 

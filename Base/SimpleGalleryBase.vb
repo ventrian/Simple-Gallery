@@ -13,12 +13,15 @@ Imports System.Web.UI.WebControls
 Imports System.Xml
 
 Imports DotNetNuke
+Imports DotNetNuke.Application
 Imports DotNetNuke.Common
 Imports DotNetNuke.Common.Utilities
 Imports DotNetNuke.Entities.Modules
 Imports DotNetNuke.Entities.Portals
 Imports DotNetNuke.Entities.Tabs
+Imports DotNetNuke.Entities.Users
 Imports DotNetNuke.Security
+Imports DotNetNuke.Security.Permissions
 
 Imports Ventrian.SimpleGallery.Common
 Imports Ventrian.SimpleGallery.Entities
@@ -69,19 +72,11 @@ Namespace Ventrian.SimpleGallery
         End Sub
 
         Public Function GetButtonStyle(ByVal isPrimary As Boolean) As String
-
-            Dim version As Integer = Convert.ToInt32(PortalController.GetCurrentPortalSettings().Version.Replace(".", ""))
-
-            If (version >= 600) Then
-                If (isPrimary) Then
-                    Return "dnnPrimaryAction"
-                Else
-                    Return "dnnSecondaryAction"
-                End If
+            If (isPrimary) Then
+                Return "dnnPrimaryAction"
             Else
-                Return "CommandButton"
+                Return "dnnSecondaryAction"
             End If
-
         End Function
 
         Public Function FormatBorderPath(ByVal image As String) As String
@@ -150,10 +145,12 @@ Namespace Ventrian.SimpleGallery
                 Return False
             End If
 
-            Return _
-                (PortalSecurity.IsInRoles(ModuleConfiguration.AuthorizedEditRoles) = True) Or _
-                (PortalSecurity.IsInRoles(PortalSettings.ActiveTab.AdministratorRoles) = True) Or _
-                (PortalSecurity.IsInRoles(PortalSettings.AdministratorRoleName) = True)
+            Return ModulePermissionController.CanEditModuleContent(ModuleConfiguration)
+
+            'Return _
+            '    (PortalSecurity.IsInRoles(ModuleConfiguration.AuthorizedEditRoles) = True) Or _
+            '    (PortalSecurity.IsInRoles(PortalSettings.ActiveTab.AdministratorRoles) = True) Or _
+            '    (PortalSecurity.IsInRoles(PortalSettings.AdministratorRoleName) = True)
 
         End Function
 

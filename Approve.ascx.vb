@@ -103,11 +103,10 @@ Namespace Ventrian.SimpleGallery
                 body = body.Replace("[MESSAGE]", Localization.GetString("NoReason", Me.LocalResourceFile))
             End If
 
-            Dim objUserController As New UserController
-            Dim objUser As UserInfo = objUserController.GetUser(Me.PortalId, objPhoto.AuthorID)
+            Dim objUser As UserInfo = UserController.Instance.GetUser(Me.PortalId, objPhoto.AuthorID)
 
             If Not (objUser Is Nothing) Then
-                DotNetNuke.Services.Mail.Mail.SendMail(PortalSettings.Email, objUser.Membership.Email, "", subject, body, "", "", "", "", "", "")
+                DotNetNuke.Services.Mail.Mail.SendMail(PortalSettings.Email, objUser.Email, "", subject, body, "", "", "", "", "", "")
             End If
 
         End Sub
